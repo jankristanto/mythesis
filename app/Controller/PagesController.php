@@ -11,7 +11,7 @@ class PagesController extends AppController {
 
 	public $helpers = array('Html', 'Session');
 
-	public $uses = array('Tweet','FormalWord','Query');
+	public $uses = array('Tweet','FormalWord','Query','Comparison');
     
     public $components = array(
         'MyTwitter' => array(
@@ -166,7 +166,50 @@ class PagesController extends AppController {
 	
 	function coba2(){
 		//$this->Query->recursive = -1; 
-		debug($this->Query->find('first',array())); exit;
+		/*$data = $this->Query->Repository->find('all',
+				array(
+					'conditions' => array('id_query' => 9),
+					'limit' => 100
+				)
+			);
+		$comp = array();
+		foreach($data as $index => $repo){
+			$comp[$index]['Comparison']['content'] = $repo['Repository']['tweet'];
+			$comp[$index]['Comparison']['published'] = $repo['Repository']['tanggal'];
+			$comp[$index]['Comparison']['author'] = $repo['Repository']['penulis'];
+			$comp[$index]['Comparison']['other'] = -1;
+		}
+		
+		echo $this->Comparison->saveAll($comp);*/ 
+		
+		$dataTweet = $this->Comparison->find('all');
+		//$dataTweet = $this->Tweet->find('all');
+        //debug($dataTweet); exit;
+        $cleanTweets = array();
+        foreach($dataTweet as $index => $tw){
+            $cleanTweets[$index]['CleanTweet']['id'] = $tw['Comparison']['id'];
+			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['content']);
+        }
+               
+        //$this->Tweet->CleanTweet->saveAll($cleanTweets);
+        
+		
+		$dataBersih = $cleanTweets;
+		//$dataBersih = $this->Tweet->CleanTweet->find('all');
+        //debug($dataBersih); exit;
+        $hasil = array();
+        
+        foreach($dataBersih as $index => $t){
+            $hasil = $this->JanPosTagging->posTagDic($dataBersih[$index]['CleanTweet']['content'],$dataBersih[$index]['CleanTweet']['id']);
+            $hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
+            $hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
+            $hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
+            $dataBersih[$index]['CleanTweet']['conclusion'] = $hasil['conclusion'];
+			//$this->Tweet->CleanTweet->id = $dataBersih[$index]['CleanTweet']['id']; 
+            //$this->Tweet->CleanTweet->saveField('sentiment',$hasil['conclusion']);
+        }
+        debug($dataBersih);
+		exit;
 	}
 
 
