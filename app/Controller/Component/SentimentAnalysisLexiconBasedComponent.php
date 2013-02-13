@@ -1,6 +1,8 @@
 <?php
+	require_once(APP . 'Vendor' . DS.'IDNstemmer.php');
   Class SentimentAnalysisLexiconBasedComponent extends Component{
       public $FormalWord;
+	  public $streamer;
       public function initialize(Controller $controller){
            
       }
@@ -9,14 +11,15 @@
             //$settings = array_merge($this->settings, (array)$settings);
             $this->Controller = $collection->getController();
             $this->FormalWord = ClassRegistry::init('FormalWord');
+			$this->streamer = new IDNstemmer();
             parent::__construct($collection, $settings);
       }
       
       public function analysisTwoWord($one,$two){
         
         $this->FormalWord->recursive = -1;
-        $sentimenOne = $this->FormalWord->find('first',array('conditions' => array('text' => $one['word'])));    
-        $sentimenTwo = $this->FormalWord->find('first',array('conditions' => array('text' => $two['word'])));  
+        $sentimenOne = $this->FormalWord->find('first',array('conditions' => array('text' => $this->streamWord($one['word']))));    
+        $sentimenTwo = $this->FormalWord->find('first',array('conditions' => array('text' => $this->streamWord($two['word']))));  
         
         if($sentimenOne['FormalWord']['status'] == $sentimenTwo['FormalWord']['status']){
             return $sentimenOne['FormalWord']['status'];
@@ -51,10 +54,21 @@
       
       public function analysisOneWord($one){
         $this->FormalWord->recursive = -1;
+		
+		
         $sentimenOne = $this->FormalWord->find('first',
-            array('conditions' => array('text' => $one['word'])));        
+            array('conditions' => array('text' => $this->streamWord($one['word']))));        
         return $sentimenOne['FormalWord']['status'];    
       }
+	  
+	  public function streamWord($word){
+		if($this->FormalWord->find('count',
+            array('conditions' => array('text' => $word))) > 0){
+				return $word;
+		}else{
+			return $this->streamWord($word);
+		}
+	  }
       
       public function preliminaryAnalysis($sentence){
           $sentiments = array();
@@ -120,8 +134,9 @@
           
           $i=0;
           while($i<(count($sentence))){
+			
               if($i>0){
-              if(
+				if(
                     ($sentence[$i]['jenis'] == 'VB') 
                     &&($sentence[$i-1]['jenis'] == 'RB' || $sentence[$i-1]['jenis'] == 'CK'
                        ||$sentence[$i-1]['jenis'] == 'NN' || $sentence[$i-1]['jenis'] == 'JJ' 
@@ -167,15 +182,18 @@
                       }
                   }
               }else{
+				
                  if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
                               // do analysis 1 word
+							  
                     array_push(
-                                $sentiments,
-                                array(
-                                    'analysis' => $this->analysisOneWord($sentence[$i]),
-                                    $sentence[$i]
-                                )
-                              );
+							$sentiments,
+							array(
+								'analysis' => $this->analysisOneWord($sentence[$i]),
+								$sentence[$i]
+							)
+						  );
+					
                  }                    
               } 
               $i++;  

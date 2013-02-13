@@ -78,7 +78,6 @@
 		   if(!in_array("rt", $splited)) {
 				return $this->filterToken($splited);
 			}else{
-				
 				return null;
 			}
           

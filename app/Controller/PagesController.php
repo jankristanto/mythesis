@@ -23,6 +23,17 @@ class PagesController extends AppController {
         'SentimentAnalysisLexiconBased'
     );
 	
+	public function singleLinguisticAnalisys(){
+		$kalimat = 'sedihnya hati ini';
+		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
+		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
+		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
+		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
+        debug($hasil); exit;      
+		exit;
+		
+	}
+	
 	function generateTestingData(){
 	
 		$this->Tweet->CleanTweet->recursive = -1;
