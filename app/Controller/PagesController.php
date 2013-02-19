@@ -23,8 +23,24 @@ class PagesController extends AppController {
         'SentimentAnalysisLexiconBased'
     );
 	
+	public function strim(){
+		$word = "gaa"; 
+		$hasil = "";
+		for($i=0; $i<strlen($word);$i++){
+			if($i>0){
+				if($word[$i] == $word[$i-1]){
+					$hasil = str_replace('', $word[$i], $word);
+					echo $hasil;
+				}
+			}
+			
+		}
+		//echo $hasil; 
+		exit; 
+	}
+	
 	public function singleLinguisticAnalisys(){
-		$kalimat = 'sedihnya hati ini';
+		$kalimat = 'aduh.. knp ya ngantuk sekali :(';
 		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
 		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
@@ -175,7 +191,7 @@ class PagesController extends AppController {
        $this->FormalWord->saveAll($formals); exit;
     }
 	
-	function coba2(){
+	function perbandingan($limit,$page){
 		//$this->Query->recursive = -1; 
 		/*$data = $this->Query->Repository->find('all',
 				array(
@@ -193,34 +209,42 @@ class PagesController extends AppController {
 		
 		echo $this->Comparison->saveAll($comp);*/ 
 		
-		$dataTweet = $this->Comparison->find('all');
-		//$dataTweet = $this->Tweet->find('all');
-        //debug($dataTweet); exit;
+		$dataTweet = $this->Comparison->find('all',array('limit' => $limit,'page' => $page));
+		
+		
         $cleanTweets = array();
         foreach($dataTweet as $index => $tw){
             $cleanTweets[$index]['CleanTweet']['id'] = $tw['Comparison']['id'];
-			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['content']);
+			$cleanTweets[$index]['CleanTweet']['original'] = $tw['Comparison']['original'];
+			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['original']);
+			$cleanTweets[$index]['CleanTweet']['other'] = 'negatif';
         }
-               
-        //$this->Tweet->CleanTweet->saveAll($cleanTweets);
         
-		
+        
 		$dataBersih = $cleanTweets;
-		//$dataBersih = $this->Tweet->CleanTweet->find('all');
+		
         //debug($dataBersih); exit;
         $hasil = array();
-        
+			$i=0;
+			$temp = array();
         foreach($dataBersih as $index => $t){
             $hasil = $this->JanPosTagging->posTagDic($dataBersih[$index]['CleanTweet']['content'],$dataBersih[$index]['CleanTweet']['id']);
             $hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
             $hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
-            $hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
-            $dataBersih[$index]['CleanTweet']['conclusion'] = $hasil['conclusion'];
-			//$this->Tweet->CleanTweet->id = $dataBersih[$index]['CleanTweet']['id']; 
-            //$this->Tweet->CleanTweet->saveField('sentiment',$hasil['conclusion']);
+            $hasil['my'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
+            $dataBersih[$index]['CleanTweet']['my'] = $hasil['my'];
+			
+			$temp['Comparison'] = $dataBersih[$index]['CleanTweet'];
+			//debug($temp);
+			$this->Comparison->save($temp);
+			$temp[$index] = $temp;
         }
-        debug($dataBersih);
-		exit;
+		
+		unset($temp['Comparison']);
+		
+		$this->set('data',$temp);
+        
+		
 	}
 
 

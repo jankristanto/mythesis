@@ -17,7 +17,7 @@
            $this->InFormalWord = ClassRegistry::init('InFormalWord');
            $aspal = $this->InFormalWord->find('list',array(
 			'fields' => array('InFormalWord.aspal', 'InFormalWord.asli')));
-          
+			//debug($splitedTweet);exit;
 			foreach($splitedTweet as $word){
 				if(strpos($word, "://") === FALSE && strpos($word, "@") === FALSE){
 					$word = $this->removeSymbol($word); 
@@ -74,12 +74,13 @@
       public function doIt($tweet){
           $tweet = $this->clearInvalidUTF8($tweet);
           $splited = split(" ",$this->casefolding($tweet)); 
-          //debug($splited); exit;
-		   if(!in_array("rt", $splited)) {
+          
+			return $this->filterToken($splited);
+		   /*if(!in_array("rt", $splited)) {
 				return $this->filterToken($splited);
 			}else{
 				return null;
-			}
+			}*/
           
       }
 	  

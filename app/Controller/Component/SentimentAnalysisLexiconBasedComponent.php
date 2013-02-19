@@ -62,12 +62,13 @@
       }
 	  
 	  public function streamWord($word){
-		if($this->FormalWord->find('count',
+		/*if($this->FormalWord->find('count',
             array('conditions' => array('text' => $word))) > 0){
 				return $word;
 		}else{
 			return $this->streamWord($word);
-		}
+		}*/
+		return $word;
 	  }
       
       public function preliminaryAnalysis($sentence){
