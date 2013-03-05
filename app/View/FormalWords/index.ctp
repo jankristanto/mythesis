@@ -1,4 +1,4 @@
-
+<?php echo $this->Html->script('myscript');?>
 <div class="box">
     <!-- Box Head -->
     <div class="box-head">
@@ -12,6 +12,13 @@
     <!-- End Box Head -->    
 
     <!-- Table -->
+	<div >
+		
+		<?php
+			echo $this->Form->input('text',array('type'=>'text','id'=>'text','label'=>'Search'));
+		?>
+		
+	</div>
     <div class="table">
         <table>
             <thead>
@@ -19,6 +26,7 @@
                     <th><?php echo $this->Paginator->sort('id');?></th>
                     <th><?php echo $this->Paginator->sort('text');?></th>
                     <th><?php echo $this->Paginator->sort('pos');?></th>
+					<th><?php echo $this->Paginator->sort('status');?></th>
                    
                 </tr>
             </thead>
@@ -28,7 +36,7 @@
                         <td><?php echo $informal['FormalWord']['id']?></td>
                         <td><?php echo $informal['FormalWord']['text']?></td>
                         <td><?php echo $informal['FormalWord']['pos']?></td>
-                        
+                        <td><?php echo $informal['FormalWord']['status']?></td>
                     </tr>
                 <?php endforeach;?>
             </tbody>

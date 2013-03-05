@@ -40,7 +40,7 @@ class PagesController extends AppController {
 	}
 	
 	public function singleLinguisticAnalisys(){
-		$kalimat = 'aduh.. knp ya ngantuk sekali :(';
+		$kalimat = 'sm makasih cc';
 		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
 		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
@@ -191,38 +191,38 @@ class PagesController extends AppController {
        $this->FormalWord->saveAll($formals); exit;
     }
 	
-	function perbandingan($limit,$page){
-		//$this->Query->recursive = -1; 
-		/*$data = $this->Query->Repository->find('all',
+	public function downloaddata(){
+		$this->Query->recursive = -1; 
+		$data = $this->Query->Repository->find('all',
 				array(
-					'conditions' => array('id_query' => 9),
+					'conditions' => array('id_query' => 11),
 					'limit' => 100
 				)
 			);
 		$comp = array();
 		foreach($data as $index => $repo){
-			$comp[$index]['Comparison']['content'] = $repo['Repository']['tweet'];
+			$comp[$index]['Comparison']['original'] = $repo['Repository']['tweet'];
 			$comp[$index]['Comparison']['published'] = $repo['Repository']['tanggal'];
 			$comp[$index]['Comparison']['author'] = $repo['Repository']['penulis'];
-			$comp[$index]['Comparison']['other'] = -1;
+			$comp[$index]['Comparison']['other'] = 'netral';
 		}
 		
-		echo $this->Comparison->saveAll($comp);*/ 
-		
+		echo $this->Comparison->saveAll($comp);
+	}
+	
+	function perbandingan($limit,$page){
+			
 		$dataTweet = $this->Comparison->find('all',array('limit' => $limit,'page' => $page));
-		
-		
+			
         $cleanTweets = array();
         foreach($dataTweet as $index => $tw){
             $cleanTweets[$index]['CleanTweet']['id'] = $tw['Comparison']['id'];
 			$cleanTweets[$index]['CleanTweet']['original'] = $tw['Comparison']['original'];
 			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['original']);
-			$cleanTweets[$index]['CleanTweet']['other'] = 'negatif';
+			//$cleanTweets[$index]['CleanTweet']['other'] = 'negatif';
         }
-        
-        
+               
 		$dataBersih = $cleanTweets;
-		
         //debug($dataBersih); exit;
         $hasil = array();
 			$i=0;
@@ -239,12 +239,89 @@ class PagesController extends AppController {
 			$this->Comparison->save($temp);
 			$temp[$index] = $temp;
         }
+		$this->set(compact('limit','page'));
+		$this->set('data',$this->Comparison->find('all',array('limit' => $limit,'page' => $page)));	
+	}
+	
+	public function updatesentiment(){
+		$this->layout = 'ajax'; 
+		$this->autoRender = false; 
+		$this->Comparison->id = $this->data['id']; 
+		if($this->Comparison->saveField('manual',$this->data['sentiment'])){
+			echo "berhasil";
+		}else{
+			echo "gagal";
+		}
 		
-		unset($temp['Comparison']);
+		exit;
+	}
+	
+	public function summary($method){
+		// emoticon
+		$summ = array();
+		$summ['positifpositif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'positif', 
+				'manual' => 'positif'
+			)
+		));
+		$summ['positifnetral'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'positif', 
+				'manual' => 'netral'
+			)
+		));
+		$summ['positifnegatif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'positif', 
+				'manual' => 'negatif'
+			)
+		));
 		
-		$this->set('data',$temp);
-        
+		$summ['netralpositif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'netral', 
+				'manual' => 'positif'
+			)
+		));
+		$summ['netralnetral'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'netral', 
+				'manual' => 'netral'
+			)
+		));
+		$summ['netralnegatif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'netral', 
+				'manual' => 'negatif'
+			)
+		));
 		
+		$summ['negatifpositif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'negatif', 
+				'manual' => 'positif'
+			)
+		));
+		$summ['negatifnetral'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'negatif', 
+				'manual' => 'netral'
+			)
+		));
+		$summ['negatifnegatif'] = $this->Comparison->find('count',array(
+			'conditions' => array(
+				$method => 'negatif', 
+				'manual' => 'negatif'
+			)
+		));
+		if($method == 'other'){
+			$method = 'Emoticon';
+		}else{
+			$method = 'Linguistic';
+		}
+		$this->set('data',$summ);
+		$this->set('method',$method);
 	}
 
 

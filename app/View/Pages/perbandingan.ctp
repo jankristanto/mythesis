@@ -1,4 +1,5 @@
 <h2>Perbandingan</h2>
+<?php echo $this->Html->link('next',array('controller' => 'pages','action' =>'perbandingan',$limit,$page+1));?>
 <div class="table">
 <table>
 	<thead>
@@ -19,9 +20,17 @@
 			<td width ="30%"><?php echo $d['Comparison']['content']?></td>
 			<td width ="10%"><?php echo $d['Comparison']['other']?></td>
 			<td width ="10%"><?php echo $d['Comparison']['my']?></td>
-			<td width ="10%"></td>
+			<td width ="10%">
+				<?php if(is_null($d['Comparison']['manual'])):?>
+				<input class="manual"  rel="<?php echo $d['Comparison']['id']?>" />
+				<?php else: ?>
+				<input class="manual" value="<?php echo $d['Comparison']['manual']?>" rel="<?php echo $d['Comparison']['id']?>" />
+				<?php endif;?>
+			</td>
 		</tr>
 		<?php endforeach;?>
 	</tbody>
 </table>
 </div>
+
+<?php echo $this->Html->script('updatesentiment');?>

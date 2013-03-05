@@ -8,6 +8,10 @@
       
       public function index(){
           $data = $this->paginate('FormalWord');
+		  if($this->request->is('ajax')){
+			$this->layout = 'ajax';
+			$data=$this->FormalWord->find("all",array("conditions"=> "text LIKE '".$_POST['term']."%'" ));   
+		  }
           $this->set('data', $data);
       }
       
@@ -17,7 +21,7 @@
       }
       
       public function cari(){
-          
+			
       }
       
       public function  test(){
