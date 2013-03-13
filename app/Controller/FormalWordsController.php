@@ -5,6 +5,20 @@
       public $paginate = array(
         'limit' => 25
       );
+	  
+	  public function generateText(){
+		$data = $this->FormalWord->find('all',array('fields' => array('text')));
+		App::uses('Folder', 'Utility');
+		App::uses('File', 'Utility');
+		$dir = new Folder(WWW_ROOT.'files', true, 0755);
+		$file = new File(WWW_ROOT.'files/dic.txt', true, 0644);
+		foreach($data as $d){
+			if($file->exists()){
+					$file->append($d['FormalWord']['text'].' ');
+				}
+		}
+		echo "done"; exit;
+	  }
       
       public function index(){
           $data = $this->paginate('FormalWord');

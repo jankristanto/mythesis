@@ -20,29 +20,42 @@ class PagesController extends AppController {
         'Preprocessing', 
         'JanPosTagging',
         'JanGoogleTranslate',
-        'SentimentAnalysisLexiconBased'
+        'SentimentAnalysisLexiconBased',
+		'SpellingCorrection'
     );
 	
-	public function strim(){
-		$word = "gaa"; 
-		$hasil = "";
-		for($i=0; $i<strlen($word);$i++){
-			if($i>0){
-				if($word[$i] == $word[$i-1]){
-					$hasil = str_replace('', $word[$i], $word);
-					echo $hasil;
-				}
-			}
-			
-		}
-		//echo $hasil; 
+	public function testing($str){
+		
+		//debug($this->JanGoogleTranslate->translate($str,'id_to_en')); 
+		echo $this->Preprocessing->correction($str);
 		exit; 
 	}
 	
+	public function testrim($word){
+		
+		debug($this->strim($word,0)); exit;
+	}
+	public function strim($word,$i){
+		
+		if($i+2 < strlen($word)){
+			if(($word[$i] == $word[$i+1]) && ($word[$i+1] == $word[$i+2])){
+				$new_word = substr($word, 0,$i);
+				$word = ($new_word . substr($word, $i+1));
+				return $this->strim($word,$i);
+			}
+			return $this->strim($word,$i+1);
+		}
+		
+		return $word;
+	}
+	
 	public function singleLinguisticAnalisys(){
-		$kalimat = 'sm makasih cc';
+		$kalimat = 'seedihhh banget liat nilai matematika';
+		
 		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
+		
 		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
+		//debug($this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil)); exit;
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
 		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
         debug($hasil); exit;      

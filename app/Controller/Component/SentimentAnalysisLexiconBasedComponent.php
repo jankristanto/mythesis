@@ -73,69 +73,11 @@
       
       public function preliminaryAnalysis($sentence){
           $sentiments = array();
-          
-          /*foreach($sentence as $i => $kata){
-              if($i>0){
-              if(
-                    ($sentence[$i]['jenis'] == 'VB') 
-                    &&($sentence[$i-1]['jenis'] == 'RB' || $sentence[$i-1]['jenis'] == 'CK'
-                       ||$sentence[$i-1]['jenis'] == 'NN' || $sentence[$i-1]['jenis'] == 'JJ' 
-                    )
-                  ){
-                      
-                      array_push(
-                        $sentiments,
-                        array(
-                             'analysis' => $this->analysisTwoWord($sentence[$i-1],$sentence[$i]),
-                            $sentence[$i-1],
-                            $sentence[$i]
-                        )
-                      );
-                  }else{
-                      if(
-                        ($sentence[$i]['jenis'] == 'JJ') && 
-                        ($sentence[$i-1]['jenis'] == 'RB' || $sentence[$i-1]['jenis'] == 'NN'
-                       ||$sentence[$i-1]['jenis'] == 'VB' 
-                       )
-                      ){
-                         array_push(
-                        $sentiments,
-                        array(
-                            'analysis' => $this->analysisTwoWord($sentence[$i-1],$sentence[$i]),
-                            $sentence[$i-1],
-                            $sentence[$i]
-                        )
-                      );
-                      }else{
-                          if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
-                              // do analysis 1 word
-                              array_push(
-                                $sentiments,
-                                array(
-                                    'analysis' => $this->analysisOneWord($sentence[$i]), 
-                                    $sentence[$i]
-                                )
-                              );
-                          }
-                      }
-                  }
-              }else{
-                 if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
-                              // do analysis 1 word
-                    array_push(
-                                $sentiments,
-                                array(
-                                    'analysis' => $this->analysisOneWord($sentence[$i]),
-                                    $sentence[$i]
-                                )
-                              );
-                 }                    
-              }   
-          }*/
+          //debug($sentence); exit; 
           
           $i=0;
+		  
           while($i<(count($sentence))){
-			
               if($i>0){
 				if(
                     ($sentence[$i]['jenis'] == 'VB') 
@@ -194,10 +136,9 @@
 								$sentence[$i]
 							)
 						  );
-					
-                 }                    
+                }                    
               } 
-              $i++;  
+              $i=$i+1;  
           }
           
           $senti = array();
