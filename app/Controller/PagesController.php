@@ -24,6 +24,10 @@ class PagesController extends AppController {
 		'SpellingCorrection'
     );
 	
+	public function home(){
+	
+	}
+	
 	public function testing($str){
 		
 		//debug($this->JanGoogleTranslate->translate($str,'id_to_en')); 
@@ -31,8 +35,7 @@ class PagesController extends AppController {
 		exit; 
 	}
 	
-	public function testrim($word){
-		
+	public function testrim($word){	
 		debug($this->strim($word,0)); exit;
 	}
 	public function strim($word,$i){
