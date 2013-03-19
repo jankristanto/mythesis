@@ -1,0 +1,4 @@
+var Project = {
+    params: {},
+    locale: {}
+};

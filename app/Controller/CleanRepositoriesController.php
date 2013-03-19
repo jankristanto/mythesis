@@ -28,4 +28,11 @@ class CleanRepositoriesController extends AppController {
         $this->set(compact('limit','page'));
         
     }
+    
+    public function statistik(){
+        $data = $this->CleanRepository->find('all',array('fields' => array('COUNT(id) AS jum','sentiment'),'group' => array('CleanRepository.sentiment'))); 
+        $this->set(compact('data'));
+        
+        
+    }
 }

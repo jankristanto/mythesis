@@ -4,5 +4,6 @@
 		//public $useDbConfig = 'my';
 		public $primaryKey = 'id_repositori';
         public $hasOne = array('CleanRepository');
+		var $actsAs = array('Containable');
 	}
 ?>

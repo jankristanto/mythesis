@@ -8,7 +8,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	//public $components = array('DebugKit.Toolbar');
-	public $helpers = array('Html', 'Form', 'Session',
+	
+    public $helpers = array('Html', 'Form', 'Session','JanProject',
         'BootstrapForm', 'BootstrapPaginator'
     );
     public $dictionary; 
@@ -16,6 +17,7 @@ class AppController extends Controller {
 	public function beforeFilter(){
 		$this->dictionary = $this->generateDictionary(WWW_ROOT.'files/dic.txt');
 	}
+    
 	public function generateDictionary($path){
 		$contents = file_get_contents($path);
 		// get all strings of word letters

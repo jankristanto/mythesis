@@ -11,7 +11,7 @@ text.defaultText('Search Word');
 // Using jQuery UI's autocomplete widget:
 text.autocomplete({
 minLength    : 2,
-source        : 'http://localhost/twitter/FormalWords/search'
+source        : Project.basePath+'/FormalWords/search'
 });
 
 });

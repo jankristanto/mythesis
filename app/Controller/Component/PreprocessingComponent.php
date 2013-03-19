@@ -28,6 +28,7 @@ App::uses('Component', 'Controller');
             $str = iconv("UTF-8","UTF-8//IGNORE",$str); 
             $str = iconv("UTF-8","ISO-8859-1//IGNORE",$str);
             $str = iconv("ISO-8859-1","UTF-8",$str);
+			$str = (strlen($str) > 255) ? substr($str,0,255) : $str;
             return $str;
 		}
 		
@@ -52,14 +53,9 @@ App::uses('Component', 'Controller');
 					$word = $this->removeSymbol($word); 
 					$word= $this->processNumbers($word);
 					$word = trim($word);
-					
 					$word = $this->removeOneChar($word);
-					
-					
 					$word = $this->mytrim($word,0);
-					
-					
-					
+														
 					// change informal word
 					if(isset($aspal[$word])){
 						$word = $aspal[$word];
@@ -117,11 +113,52 @@ App::uses('Component', 'Controller');
 	  
 	        
       public function processNumbers($word){
-         $pos = strpos($word,'2'); 
-         if( $pos== TRUE){      
-            $word = substr($word, 0, $pos).' '.substr($word, 0, $pos );  
-          }
-          return $word;
+         $str = "";
+         for($i=0;$i<10;$i++ ){
+            $str = (string)$i;
+            if (strpos($word, $str) !== false) { 
+  
+
+            switch ($i) {
+                case 0:
+                    $word =  str_replace($str,"o",$word);
+                    break;
+                case 1:
+                    $word =  str_replace($str,"i",$word);
+                    break;
+                case 2:
+                    $pos = strpos($word,$str);
+                    $word = substr($word, 0, $pos).' '.substr($word, 0, $pos );  
+                    break;
+                case 3:
+                    $word =  str_replace($str,"e",$word);
+                    break;
+                case 4:
+                    $word =  str_replace($str,"a",$word);
+                    break;
+                case 5:
+                    $word =  str_replace($str,"s",$word);
+                    break;
+                case 6:
+                    $word =  str_replace($str,"g",$word);
+                    break;
+                case 7:
+                    $word =  str_replace($str,"t",$word);
+                    break;
+                case 8:
+                    $word =  str_replace($str,"b",$word);
+                    break;
+                case 9:
+                    $word =  str_replace($str,"g",$word);
+                    break;
+            }
+            
+            }
+         }
+                   
+         
+
+         return $word;
       }
   }
 ?>

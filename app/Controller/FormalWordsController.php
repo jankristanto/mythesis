@@ -28,6 +28,21 @@
 		  }
           $this->set('data', $data);
       }
+      public function add(){
+          $pos = array(
+            'NN'=>'NN','VB' => 'VB','RB'=>'RB','IN' => 'IN',
+            'MD' => 'MD','UH' => 'UH','CC' => 'CC','PR'=> 'PR','DT' => 'DT',
+            'CK'=> 'CK','RP' => 'RP','a2' => 'a2'
+          );
+          if($this->request->is('post')){
+              if($this->FormalWord->save($this->request->data)){
+                  $this->Session->setFlash('Telah Berhasil Menambahkan Kata Baku Baru');
+                  $this->redirect(array('action' => 'index'));
+              }
+          }
+          
+          $this->set(compact('pos'));
+      }
       
       public function getSen($word){
           debug($this->FormalWord->extract($word)); exit;

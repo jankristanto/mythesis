@@ -38,9 +38,11 @@
     </table>
     <div class="pagination">
     <ul>
-        <?php echo $this->BootstrapPaginator->prev();?>
-        <?php echo $this->BootstrapPaginator->numbers();?>
-        <?php echo $this->BootstrapPaginator->next();?>
+		<?php $this->passedArgs['page'] = $this->passedArgs['page'] -1;?>
+        <li><a href="<?php echo $this->Html->url($this->passedArgs);?>">&lt;&lt; Previous</li>        
+		<?php $this->passedArgs['page'] = $this->passedArgs['page'] +2;?>
+		<li><a href="<?php echo $this->Html->url($this->passedArgs);?>">Next &gt;&gt;</a></li>
     </ul>
+	
     </div>
 </div>

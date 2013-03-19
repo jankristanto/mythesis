@@ -12,13 +12,13 @@ $cakeDescription = __d('cake_dev', 'Twitter Sentiment Analysis');
 	
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css(array('bootstrap','style','bootstrap-responsive'));
-		//echo $this->Html->css('jquery-ui-1.8.23.custom');
 		echo $this->Html->script('jquery-1.8.0.min');
-		//echo $this->Html->script('jquery-ui-1.8.23.custom.min');
+		echo $this->Html->script('jquery-ui-1.8.23.custom.min');
 		echo $this->Html->script('bootstrap.min');
-		//echo $this->Html->script('myautocomplate');
+        echo $this->JanProject->js();
+		echo $this->Html->script('myautocomplate');
+        echo $this->Html->css(array('bootstrap','style','bootstrap-responsive'));
+        echo $this->Html->css('jquery-ui-1.8.23.custom');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');

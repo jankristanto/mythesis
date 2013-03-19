@@ -1,18 +1,12 @@
 <?php echo $this->Html->script('updatesentiment'); ?>
-<div class="box">
-	<!-- Box Head -->
-	<div class="box-head">
-		<h2 class="left">DATA TWITTER</h2>
-		<div class="right">
-			<?php echo $this->Html->link('Lakukan Analisis',array('controller' => 'CleanTweets','action' => 'analisis',$huntId )); ?>
-			<?php echo $this->Html->link('Generate test',array('controller' => 'CleanTweets','action' => 'generateBobot',$huntId )); ?>
-		</div>
+<div class="text-center" class="row-fluid">
+	<h2 class="left">DATA TWITTER</h2>
+	<div class="right">
+		<?php echo $this->Html->link('Lakukan Analisis Awal',array('controller' => 'CleanTweets','action' => 'checkNetral',$huntId )); ?>
+		<?php echo $this->Html->link('Generate test',array('controller' => 'CleanTweets','action' => 'generateBobot',$huntId )); ?>
 	</div>
-	<!-- End Box Head -->	
-
-	<!-- Table -->
 	<div class="table">
-		<table cellpadding="0" cellspacing="0">
+		<table class="table">
 			<tr>
 					<th><?php echo $this->Paginator->sort('id'); ?></th>
 					<th><?php echo $this->Paginator->sort('content'); ?></th>
@@ -23,7 +17,12 @@
 				<td rowspan="2"><?php echo h($tweet['CleanTweet']['id']); ?>&nbsp;</td>
 				<td><?php echo h($tweet['CleanTweet']['content']); ?>&nbsp;</td>
 				<td rowspan="2"><?php 
-					echo $this->Form->input('sentiment',array('rel' => $tweet['CleanTweet']['id'],'class' => 'senti','div' => false,'label' => false,'options' => $status,'selected' => $tweet['CleanTweet']['sentiment']));
+					if($tweet['CleanTweet']['sentiment'] != null){
+						echo $this->Form->input('sentiment',array('rel' => $tweet['CleanTweet']['id'],'class' => 'senti','div' => false,'label' => false,'options' => $status,'selected' => $tweet['CleanTweet']['sentiment'] ));
+					}else{
+						echo $this->Form->input('sentiment',array('rel' => $tweet['CleanTweet']['id'],'class' => 'senti','div' => false,'label' => false,'options' => $status,'empty' => true ));
+					}
+					
 				?>&nbsp;</td>
 			</tr>
 			<tr>

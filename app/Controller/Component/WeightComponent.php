@@ -3,6 +3,7 @@ App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
 class WeightComponent extends Component{
 	public $CleanTweet;
+    public $CleanRepository;
 	public $dir;
 	public $filetraining;
 	public $filetesting;
@@ -19,6 +20,7 @@ class WeightComponent extends Component{
         $settings = array_merge($this->settings, (array)$settings);
         $this->Controller = $collection->getController();
 		$this->CleanTweet = ClassRegistry::init('CleanTweet');
+        $this->CleanRepository = ClassRegistry::init('CleanRepository');
 		$this->dir = new Folder(WWW_ROOT.'files', true, 0755);
 		$this->filetraining = new File(WWW_ROOT.'files/train.dat', true, 0644);
 		$this->filetesting = new File(WWW_ROOT.'files/test.dat', true, 0644);
@@ -32,10 +34,10 @@ class WeightComponent extends Component{
 		$i =1;
 			
         foreach($collection as $doc) {
-				$docID = $doc['CleanTweet']['id'];
-                $terms = explode(' ', $doc['CleanTweet']['content']); // dapat array kata
+				$docID = $doc['id'];
+                $terms = explode(' ', $doc['content']); // dapat array kata
                 $docCount[$docID] = count($terms); // jumlah kata pada kalimat ke-i
-				$status = $doc['CleanTweet']['sentiment'];
+				$status = $doc['sentiment'];
 				
                 foreach($terms as $term) {
                         if(!isset($dictionary[$term])) { // jika menemukan kata baru
@@ -77,16 +79,16 @@ class WeightComponent extends Component{
         $index = $index;
         $docCount = count($index['docCount']);
         
-		$terms = explode(' ', $doc['CleanTweet']['content']);
-		$idDoc = $doc['CleanTweet']['id'];
+		$terms = explode(' ', $doc['content']);
 		
+		$idDoc = $doc['id'];
 		$status = array('netral'=> '0','positif' => '1' ,'negatif' => '-1');
 		$hasil = array(); 
-		if($doc['CleanTweet']['sentiment'] != 'netral' ){
+		if($doc['sentiment'] != 'netral' ){
 			if($mode == 'test'){
                 $result = "0";
             }else{
-                $result =  "{$status[$doc['CleanTweet']['sentiment']]}";    
+                $result =  "{$status[$doc['sentiment']]}";    
             }
             
 			
@@ -119,14 +121,19 @@ class WeightComponent extends Component{
 		}
 	}
 	
-	public function buildTestingData($data,$allDoc){
+	public function buildTestingData($d){
 		file_put_contents($this->filetesting->pwd(), "");
-		$index = $this->getIndex($allDoc);
+		$this->CleanRepository->recursive = -1;
+        $all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
+        $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
+        $index = $this->getIndex($allDoc);
+		$data = Set::classicExtract($d, '{n}.CleanTweet');
+		$res = Set::merge($allDoc,$data);
 		
-		//debug($index); exit;
-		foreach($data as $d){
-			$this->getTfidf($d,$allDoc,$index,'test'); 
-		}	
+		foreach($res as $r){
+			$this->getTfidf($r,$res,$index,'test'); 
+		}
+			
 	}
 	
 	public function buildTrainingData(){
@@ -141,12 +148,11 @@ class WeightComponent extends Component{
 		$result = array_merge($netral, $positif);
 		$allDoc = array_merge($result,$negatif);*/
 		file_put_contents($this->filetraining->pwd(), "");
-        $this->CleanTweet->recursive = -1;
-		$allDoc = $this->CleanTweet->find('all', array("conditions" => "CleanTweet.sentiment = 'positif' OR CleanTweet.sentiment = 'negatif'"));
-		
+        $this->CleanRepository->recursive = -1;
+		$all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
+	    $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
         $index = $this->getIndex($allDoc);
 		
-		//debug($index); exit;
 		foreach($allDoc as $d){
 			$this->getTfidf($d,$allDoc,$index,'train'); 
 		}	

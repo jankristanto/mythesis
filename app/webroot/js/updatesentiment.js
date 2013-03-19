@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var id = $(this).attr('rel');
 		$.ajax({
 		  type: "POST",
-		  url: "http://localhost/mythesis/CleanTweets/updatesentiment",
+		  url: Project.basePath+"CleanTweets/updatesentiment",
 		  data: { sentiment: sentiment, id: id }
 		}).done(function( msg ) {
 		  alert( "Data Saved: " + msg );
@@ -18,7 +18,7 @@ $(document).ready(function(){
 		if(sentiment == 'netral' || sentiment == 'positif' || sentiment == 'negatif'){
 			$.ajax({
 			  type: "POST",
-			  url: "http://localhost/mythesis/Pages/updatesentiment",
+			  url: Project.basePath+"Pages/updatesentiment",
 			  data: { sentiment: sentiment, id: id }
 			}).done(function( msg ) {
 			  alert( "Data Saved: " + msg );

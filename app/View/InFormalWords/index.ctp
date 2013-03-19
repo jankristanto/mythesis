@@ -2,11 +2,7 @@
 	<!-- Box Head -->
 	<div class="box-head">
 		<h2 class="left">Kata Tidak Baku</h2>
-		<div class="right">
-			<label>search kata tidak baku</label>
-			<input type="text" class="field small-field" />
-			<input type="submit" class="button" value="search" />
-		</div>
+		<?php echo $this->Html->link('Tambah Kata TIdak Baku',array('controller' => 'InFormalWords','action' => 'add'))?>
 	</div>
 	<!-- End Box Head -->	
 

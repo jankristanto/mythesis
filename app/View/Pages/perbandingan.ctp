@@ -1,7 +1,7 @@
 <h2>Perbandingan</h2>
 <?php echo $this->Html->link('next',array('controller' => 'pages','action' =>'perbandingan',$limit,$page+1));?>
 <div class="table">
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Id</th>

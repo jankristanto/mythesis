@@ -30,30 +30,33 @@
 		}
 
 		public function correct($word, $dictionary) {
-			
-			$word = strtolower($word);
-			if(isset($dictionary[$word])) {
-					return $word;
+			if(strlen($word) <255){
+				$word = strtolower($word);
+				if(isset($dictionary[$word])) {
+						return $word;
+				}
+				
+				$edits1 = $edits2 = array();
+				foreach($dictionary as $dictWord => $count) {
+						$dist = levenshtein($word, $dictWord);
+						if($dist == 1) {
+								$edits1[$dictWord] = $count;
+						} else if($dist == 2) {
+								$edits2[$dictWord] = $count;
+						}
+				}
+				
+				if(count($edits1)) {
+						arsort($edits1);
+						return key($edits1);
+				} else if(count($edits2)) {
+						arsort($edits2);
+						return key($edits2);
+				}
+				
+			}else{
+				$word = '';
 			}
-			
-			$edits1 = $edits2 = array();
-			foreach($dictionary as $dictWord => $count) {
-					$dist = levenshtein($word, $dictWord);
-					if($dist == 1) {
-							$edits1[$dictWord] = $count;
-					} else if($dist == 2) {
-							$edits2[$dictWord] = $count;
-					}
-			}
-			
-			if(count($edits1)) {
-					arsort($edits1);
-					return key($edits1);
-			} else if(count($edits2)) {
-					arsort($edits2);
-					return key($edits2);
-			}
-
 			// Nothing better
 			return $word;
 		}

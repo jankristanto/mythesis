@@ -13,22 +13,26 @@
 		);
 		
 		public function index(){
-			if($this->request->is('post')){
-				// save keyword to db 
-				$term = $this->request->data['Hunt']['keyword'];
-				//debug($this->request->data); exit;
-				if($this->Hunt->save($this->request->data)){
+			if($this->request->is('ajax')){
+				$this->autoRender = false;
+				$term = $_POST['keyword'];
+				$hunt['Hunt']['keyword'] = $term;
+				if($this->Hunt->save($hunt)){
 					// do crawl twitter
 					$d = $this->MyTwitter->getAllTweets($term,1);
-					
+                    //debug($d);
+					$kembalian['jumlah'] = count($d[1]['feed']['entry']);
 					if($this->Hunt->Tweet->saveTweet($d,$this->Hunt->id )){
-						//$this->Session->setFlash(' Tweet dengan term '.$term.' telah disimpan');
-						$this->redirect(array('action' => 'view', $this->Hunt->id));
+				        $kembalian['status'] = 1;
+                        $kembalian['hunt'] = $this->Hunt->id;
 					}else{
-						$this->Session->setFlash(' Pencarian dengan term '.$term.' gagal disimpan');
+                        $kembalian['status'] = 0;
 					}
+                    echo json_encode(array('data' => $kembalian));
 				}
 			}
+            
+			
 		}
 		
 		public function view($id){

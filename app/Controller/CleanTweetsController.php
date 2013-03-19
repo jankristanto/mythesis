@@ -12,6 +12,26 @@ class CleanTweetsController extends AppController {
 		'Weight', 
 		'JanSvm'
 	);
+    
+    public function checkNetral($huntId){
+        $this->CleanTweet->recursive = -1;
+        $dataBersih = $this->CleanTweet->getCleanTweet($huntId);
+        $hasil = array();
+        
+        foreach($dataBersih as $index => $t){
+            $hasil = $this->JanPosTagging->posTagDic($dataBersih[$index]['CleanTweet']['content'],$dataBersih[$index]['CleanTweet']['id']);
+            $hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil);
+            
+            
+            if($hasil['conclusion']){
+                debug($hasil); exit;
+                $this->CleanTweet->id = $dataBersih[$index]['CleanTweet']['id'];
+                $this->CleanTweet->saveField('sentiment','netral'); 
+            }
+            
+        }
+        $this->redirect(array('controller' => 'CleanTweets','action' => 'index',$huntId));    
+    }
 	
 	
 	public function sync(){
@@ -78,36 +98,8 @@ class CleanTweetsController extends AppController {
 	
 	
 	public function generateBobot($id){
-		$this->CleanTweet->recursive = -1;
-		//$this->CleanTweet->Behaviors->attach('Containable');
-		$this->set('status', array(
-			'netral' => 'netral',
-			'positif' => 'positif',
-			'negatif' => 'negatif'
-			));
-		$joins[] = array(
-                    'table' => $this->CleanTweet->Tweet->table,
-                    'alias' => $this->CleanTweet->Tweet->alias,
-                    'type' => 'left',
-                    'foreignKey' => 'tweet_id',
-					'conditions'=> 'Tweet.id =  CleanTweet.tweet_id'
-                );	
-		
-		$joins[] = array(
-                    'table' => $this->CleanTweet->Tweet->Hunt->table,
-                    'alias' => $this->CleanTweet->Tweet->Hunt->alias,
-                    'type' => 'left',
-                    'foreignKey' => 'hunt_id',
-					'conditions'=> 'Tweet.hunt_id = Hunt.id'
-                ); 
-		
-		$conditions = array("Tweet.hunt_id" => $id, "CleanTweet.sentiment" => null);
-
-		$data = $this->CleanTweet->find('all',array('joins' => $joins,'conditions'=> $conditions));
-		$allDoc = $this->CleanTweet->find('all');
-		
-		$this->Weight->buildTestingData($data,$allDoc);
-		
+		$data = $this->CleanTweet->getCleanTweet($id);
+		$this->Weight->buildTestingData($data);
 		exit;
 	}
     

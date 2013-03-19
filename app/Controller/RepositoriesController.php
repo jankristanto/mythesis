@@ -6,15 +6,18 @@ class RepositoriesController extends AppController {
     );    
     
     public function index(){
-        $this->paginate = array(
-            'contain' => array(
-                'CleanRepository'
-                
-            ),
-            'limit' => 20
-        );
-        $this->set('data', $this->paginate('Repository'));
-        
+		$limit = 50; 
+		if(isset($this->params['named']['page'])){
+			$page = $this->params['named']['page'];
+		}else{
+			$page = 1;
+		}
+		$this->set('data',$this->Repository->find('all',array(
+				'limit' => $limit,'page' => $page
+				
+				)
+			)
+		);
     }
      
     public function preprocessingDataTraining($limit,$page){
@@ -34,6 +37,4 @@ class RepositoriesController extends AppController {
             $this->set(compact('page','limit'));
         }
     }
-    
-    
 }

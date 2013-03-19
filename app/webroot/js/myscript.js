@@ -4,7 +4,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 		  type: "POST",
-		  url: "http://localhost/mythesis/FormalWords/index",
+		  url: Project.basePath+"/FormalWords/index",
 		  data: { term: term}
 		}).done(function( msg ) {
 		  $('.box').empty().html(msg);

@@ -57,11 +57,13 @@ class PagesController extends AppController {
 		
 		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
 		
+		/*$hasil['netral'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil); */
+		//debug($hasil); exit; 
 		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
-		//debug($this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil)); exit;
+		
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
 		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
-        debug($hasil); exit;      
+        debug($hasil);
 		exit;
 		
 	}

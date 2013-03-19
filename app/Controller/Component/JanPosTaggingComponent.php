@@ -27,7 +27,6 @@
                 'conditions' => array('text' => $word)));
                   array_push(
                     $results,array(
-          
                         'urutan' => $index,
                         'word' => $word, 
                         'jenis' => $baku['FormalWord']['pos']

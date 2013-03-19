@@ -5,8 +5,7 @@
 	  public $streamer;
       public function initialize(Controller $controller){
            
-      }
-    
+      } 
       public function __construct(ComponentCollection $collection, $settings = array()){
             //$settings = array_merge($this->settings, (array)$settings);
             $this->Controller = $collection->getController();
@@ -14,6 +13,24 @@
 			$this->streamer = new IDNstemmer();
             parent::__construct($collection, $settings);
       }
+	  
+	  public function checkSentiment($sentence){
+		$status = false; 
+		//debug($sentence); exit; 
+		$i=0;
+		$x = count($sentence);
+		while(($i < $x) && (!$status)){
+			if(($sentence[$i]['jenis'] == 'VB') || ($sentence[$i]['jenis'] == 'JJ')){
+				$kata = $this->FormalWord->find('first',array('conditions' => array('text' => $sentence[$i]['word'] )));
+				if(($kata['FormalWord'] == 'negatif') || ($kata['FormalWord'] == 'positif')){
+					$status = true; 
+				}
+			}
+			$i++;
+		}
+		
+		return $status; 
+	  }
       
       public function analysisTwoWord($one,$two){
         
@@ -76,8 +93,8 @@
           //debug($sentence); exit; 
           
           $i=0;
-		  
-          while($i<(count($sentence))){
+		  $x = count($sentence);
+          while($i< $x){
               if($i>0){
 				if(
                     ($sentence[$i]['jenis'] == 'VB') 

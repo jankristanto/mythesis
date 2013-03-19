@@ -1,6 +1,8 @@
 <!-- Example row of columns --> 
+<?php echo $this->Html->script('searchtweet'); ?>
 <div class="text-center" class="row-fluid">
-	<h2>Enter Keyword...</h2>
+	<div id="formhunt">
+    <h2>Enter Keyword...</h2>
 	<?php
 		echo $this->Form->create('Hunt', array(
 			'inputDefaults' => array(            
@@ -14,9 +16,13 @@
 	
 	<button type="submit" class="btn btn-primary">Search</button>
 	<?php echo $this->Form->end(); ?>
+    </div>
+    <div id="pgbar" class="progress progress-info progress-striped">
+        <div class="bar" style="width: 100%"></div>
+    </div>
 </div>
 
-<div class="row-fluid">
+<div id="result" class="row-fluid" style="display: none;">
 <div class="span4">
   <h2>Positive</h2>
   <table class="table table-condensed">
