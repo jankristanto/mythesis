@@ -11,6 +11,15 @@
 			'SentimentAnalysisLexiconBased',
 			'Weight'
 		);
+        
+        public function result($id){
+			$this->Hunt->recursive = -1; 
+            $data = $this->Hunt->read(null,$id);
+			$positive = $this->Hunt->Tweet->getBySentiment($id,'positif');
+			$negative = $this->Hunt->Tweet->getBySentiment($id,'negatif');
+			$neutral = $this->Hunt->Tweet->getBySentiment($id,'netral');
+            $this->set(compact('data','positive','negative','neutral')); 
+        }
 		
 		public function index(){
 			if($this->request->is('ajax')){

@@ -3,7 +3,14 @@
       public $hasOne = array('CleanTweet');
 	  public $belongsTo = array('Hunt');
 	  
-	  
+	  public function getBySentiment($idHunt,$sentiment){
+		return $this->find('all',
+				array('conditions' => array(
+					'Tweet.hunt_id' => $idHunt,
+					'CleanTweet.sentiment' => $sentiment
+				))
+			);
+	  }
 	  public function saveTweet($data,$huntId){
 		$entry = array();
         $i = 0;

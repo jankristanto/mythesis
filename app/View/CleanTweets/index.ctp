@@ -4,6 +4,7 @@
 	<div class="right">
 		<?php echo $this->Html->link('Lakukan Analisis Awal',array('controller' => 'CleanTweets','action' => 'checkNetral',$huntId )); ?>
 		<?php echo $this->Html->link('Generate test',array('controller' => 'CleanTweets','action' => 'generateBobot',$huntId )); ?>
+		<?php echo $this->Html->link('Analysis',array('controller' => 'CleanTweets','action' => 'test',$huntId )); ?>
 	</div>
 	<div class="table">
 		<table class="table">

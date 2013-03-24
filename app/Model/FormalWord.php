@@ -7,6 +7,20 @@
             'foreignKey'   => 'asli'
         )
       );
+	  
+	  public function listSentimentWord(){
+		return $this->find('list',
+			array(
+				'fields' => array('text','status'), 
+				'conditions' => array(
+					'OR' => array(
+						'pos' => 'VB',
+						'pos' => 'JJ',
+					)
+				)
+			)
+		);
+	  }
 
       public function extract($word,$pos=null){
           $score = 0.0;

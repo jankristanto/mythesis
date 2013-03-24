@@ -12,19 +12,20 @@ class CleanTweetsController extends AppController {
 		'Weight', 
 		'JanSvm'
 	);
-    
+
     public function checkNetral($huntId){
         $this->CleanTweet->recursive = -1;
         $dataBersih = $this->CleanTweet->getCleanTweet($huntId);
         $hasil = array();
-        
+        $formalWord = ClassRegistry::init('FormalWord');
+		$sentimentword = $formalWord->listSentimentWord();
+			
         foreach($dataBersih as $index => $t){
             $hasil = $this->JanPosTagging->posTagDic($dataBersih[$index]['CleanTweet']['content'],$dataBersih[$index]['CleanTweet']['id']);
-            $hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil);
+            $hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil,$sentimentword);
+            //debug($hasil); exit;
             
-            
-            if($hasil['conclusion']){
-                debug($hasil); exit;
+            if(!$hasil['conclusion']){  
                 $this->CleanTweet->id = $dataBersih[$index]['CleanTweet']['id'];
                 $this->CleanTweet->saveField('sentiment','netral'); 
             }
@@ -66,13 +67,13 @@ class CleanTweetsController extends AppController {
 	public function train(){
 		$this->JanSvm->train(WWW_ROOT.'files/train.dat');
 	}
-	public function test(){
+	public function test($id){
 		$result = $this->JanSvm->test(WWW_ROOT.'files/test.dat');
         $this->CleanTweet->recursive = -1;
-       
-       $conditions = array("CleanTweet.sentiment" => null);
+        //debug($result); exit;
+        $conditions = array("CleanTweet.sentiment" => null);
 
-        $data = $this->CleanTweet->find('all',array('conditions'=> $conditions));
+        $data = $this->CleanTweet->getCleanTweetNotNetral($id);
         $hasil['positif'] = 0;
         $hasil['negatif'] = 0;
         foreach($data as $i => $d){
@@ -87,7 +88,8 @@ class CleanTweetsController extends AppController {
             }    
             
         }
-        $this->set('hasil', $hasil);
+		$this->redirect(array('controller' => 'hunts','action' => 'result',$id));
+        //$this->set('hasil', $hasil);
         
 	}
 	
@@ -98,9 +100,10 @@ class CleanTweetsController extends AppController {
 	
 	
 	public function generateBobot($id){
-		$data = $this->CleanTweet->getCleanTweet($id);
+		$data = $this->CleanTweet->getCleanTweetNotNetral($id);
 		$this->Weight->buildTestingData($data);
-		exit;
+		$this->Session->setFlash('Data Testing telah dibuat');
+		$this->redirect(array('action' => 'index',$id));
 	}
     
     public function analisisForTest($idHunt){

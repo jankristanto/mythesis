@@ -46,13 +46,13 @@ App::uses('Component', 'Controller');
       
 		public function filterToken($splitedTweet,$aspal){
 			$tw = "";
-			
+			//debug($splitedTweet);
 			foreach($splitedTweet as $word){
 				if(strpos($word, "://") === FALSE && strpos($word, "@") === FALSE){
 					
 					$word = $this->removeSymbol($word); 
+					
 					$word= $this->processNumbers($word);
-					$word = trim($word);
 					$word = $this->removeOneChar($word);
 					$word = $this->mytrim($word,0);
 														
@@ -60,11 +60,14 @@ App::uses('Component', 'Controller');
 					if(isset($aspal[$word])){
 						$word = $aspal[$word];
 					}   
-					$word = $this->correction($word);
+					if($word != ''){
+						$word = $this->correction($word);
+					}
 					$tw .= $word.' ';
 				}
 			}
-			return $tw;
+			//debug(trim($tw));exit;
+			return trim($tw);
 		}
 	  
 	  public function correction($str){
@@ -99,14 +102,16 @@ App::uses('Component', 'Controller');
 		  $word = preg_replace('/[^\p{L}\p{N}\s]/u',' ', $word);
 		  if($word == 'rt'){$word='';}
 
-          return $word;
+          return trim($word);
       }
       
       public function doIt($tweet){
           $tweet = $this->clearInvalidUTF8($tweet);
-          $splited = split(" ",$this->casefolding($tweet)); 
 		  
+          $splited = split(" ",$this->casefolding($tweet)); 
+		  //debug( $splited ); exit; 
           $aspal = $this->aliaswords;
+		  
 		  return $this->filterToken($splited,$aspal);
 		  
       }
@@ -158,7 +163,7 @@ App::uses('Component', 'Controller');
                    
          
 
-         return $word;
+         return trim($word);
       }
   }
 ?>

@@ -3,6 +3,7 @@
   Class SentimentAnalysisLexiconBasedComponent extends Component{
       public $FormalWord;
 	  public $streamer;
+	  public $sentimentword;
       public function initialize(Controller $controller){
            
       } 
@@ -10,20 +11,24 @@
             //$settings = array_merge($this->settings, (array)$settings);
             $this->Controller = $collection->getController();
             $this->FormalWord = ClassRegistry::init('FormalWord');
+			
 			$this->streamer = new IDNstemmer();
             parent::__construct($collection, $settings);
       }
 	  
-	  public function checkSentiment($sentence){
+	  public function checkSentiment($sentence,$sentimentword){
+		
 		$status = false; 
 		//debug($sentence); exit; 
 		$i=0;
 		$x = count($sentence);
 		while(($i < $x) && (!$status)){
 			if(($sentence[$i]['jenis'] == 'VB') || ($sentence[$i]['jenis'] == 'JJ')){
-				$kata = $this->FormalWord->find('first',array('conditions' => array('text' => $sentence[$i]['word'] )));
-				if(($kata['FormalWord'] == 'negatif') || ($kata['FormalWord'] == 'positif')){
-					$status = true; 
+				//$kata = $this->FormalWord->find('first',array('conditions' => array('text' => $sentence[$i]['word'] )));
+				if(isset($sentimentword[$sentence[$i]['word']])){
+					if(($sentimentword[$sentence[$i]['word']] == 'negatif') || ($sentimentword[$sentence[$i]['word']] == 'positif')){
+						$status = true; 
+					}
 				}
 			}
 			$i++;

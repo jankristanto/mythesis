@@ -6,6 +6,20 @@
         'limit' => 25
       );
 	  
+	  public function coba(){
+		$data = $this->FormalWord->find('list',
+			array(
+				'fields' => array('text','status'), 
+				'conditions' => array(
+					'OR' => array(
+						'pos' => 'VB',
+						'pos' => 'JJ',
+					)
+				)
+			)
+		);
+		debug($data); exit;
+	  }
 	  public function generateText(){
 		$data = $this->FormalWord->find('all',array('fields' => array('text')));
 		App::uses('Folder', 'Utility');
@@ -30,7 +44,7 @@
       }
       public function add(){
           $pos = array(
-            'NN'=>'NN','VB' => 'VB','RB'=>'RB','IN' => 'IN',
+            'NN'=>'NN','VB' => 'VB','JJ' => 'JJ','RB'=>'RB','IN' => 'IN',
             'MD' => 'MD','UH' => 'UH','CC' => 'CC','PR'=> 'PR','DT' => 'DT',
             'CK'=> 'CK','RP' => 'RP','a2' => 'a2'
           );

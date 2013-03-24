@@ -33,55 +33,47 @@ class WeightComponent extends Component{
 		$result = array();
 		$i =1;
 			
-        foreach($collection as $doc) {
-				$docID = $doc['id'];
-                $terms = explode(' ', $doc['content']); // dapat array kata
-                $docCount[$docID] = count($terms); // jumlah kata pada kalimat ke-i
-				$status = $doc['sentiment'];
-				
-                foreach($terms as $term) {
-                        if(!isset($dictionary[$term])) { // jika menemukan kata baru
-								// masukan dalam $dictionary
-                                $dictionary[$term] = array( 'netral' => 0,'positif' => 0,'negatif' => 0,'df' => 0, 'postings' => array());
-								$dictionary[$term]['index'] = $i; 
-								$i++;
-								
-                        }
-                        if(!isset($dictionary[$term]['postings'][$docID])) {
-                                $dictionary[$term]['df']++;
-                                $dictionary[$term]['postings'][$docID] = array('tf' => 0);
-								if($status == 'positif'){
-									$dictionary[$term]['positif']++;
+        foreach($collection as $id => $doc) {
+			$docID = $id;
+			$terms = explode(' ', $doc['content']); // dapat array kata
+			$docCount[$docID] = count($terms); // jumlah kata pada kalimat ke-i
+			$status = $doc['sentiment'];
+			
+			foreach($terms as $term) {
+					if(!isset($dictionary[$term])) { // jika menemukan kata baru
+							// masukan dalam $dictionary
+							$dictionary[$term] = array( 'netral' => 0,'positif' => 0,'negatif' => 0,'df' => 0, 'postings' => array());
+							$dictionary[$term]['index'] = $i; 
+							$i++;
+							
+					}
+					if(!isset($dictionary[$term]['postings'][$docID])) {
+							$dictionary[$term]['df']++;
+							$dictionary[$term]['postings'][$docID] = array('tf' => 0);
+							if($status == 'positif'){
+								$dictionary[$term]['positif']++;
+							}else{
+								if($status == 'negatif'){
+									$dictionary[$term]['negatif']++;
 								}else{
-									if($status == 'negatif'){
-										$dictionary[$term]['negatif']++;
-									}else{
-										if($status == 'netral'){
-											$dictionary[$term]['netral']++;
-										}
+									if($status == 'netral'){
+										$dictionary[$term]['netral']++;
 									}
 								}
-                        }
-						
-                        $dictionary[$term]['postings'][$docID]['tf']++;
-						//$result[$term]['term'] = $term;
-						//$result[$term]['positif'] = $dictionary[$term]['positif'];
-						//$result[$term]['negatif'] = $dictionary[$term]['negatif'];
-						
-                }
+							}
+					}
+					$dictionary[$term]['postings'][$docID]['tf']++;
+			}
         }
 		unset($dictionary['']);
 		return array('docCount' => $docCount, 'dictionary' => $dictionary);
-        
 	}
 	
-	function getTfidf($doc,$allDoc,$index,$mode) {
-        $index = $index;
+	function getTfidf($doc,$id,$allDoc,$index,$mode) {
         $docCount = count($index['docCount']);
-        
 		$terms = explode(' ', $doc['content']);
 		
-		$idDoc = $doc['id'];
+		$idDoc = $id;
 		$status = array('netral'=> '0','positif' => '1' ,'negatif' => '-1');
 		$hasil = array(); 
 		if($doc['sentiment'] != 'netral' ){
@@ -90,7 +82,6 @@ class WeightComponent extends Component{
             }else{
                 $result =  "{$status[$doc['sentiment']]}";    
             }
-            
 			
 			foreach($terms as $i => $term){
 				if(isset($index['dictionary'][$term])){
@@ -126,35 +117,28 @@ class WeightComponent extends Component{
 		$this->CleanRepository->recursive = -1;
         $all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
         $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
-        $index = $this->getIndex($allDoc);
 		$data = Set::classicExtract($d, '{n}.CleanTweet');
-		$res = Set::merge($allDoc,$data);
-		
-		foreach($res as $r){
-			$this->getTfidf($r,$res,$index,'test'); 
+		//$res = Set::merge($allDoc,$data);
+		$jumlahTest = count($data);
+		$res = array_merge($data, $allDoc);
+		$index = $this->getIndex($res);
+		foreach($res as $id => $r){
+			if($id == $jumlahTest){
+				break;
+			}
+			$this->getTfidf($r,$id,$res,$index,'test'); 
 		}
-			
 	}
 	
 	public function buildTrainingData(){
-		/*$count['netral'] = $this->CleanTweet->find('count',array('conditions' => array('sentiment' => 'netral')));
-		$count['positif'] = $this->CleanTweet->find('count',array('conditions' => array('sentiment' => 'positif')));
-		$count['negatif'] = $this->CleanTweet->find('count',array('conditions' => array('sentiment' => 'positif')));
-		
-		$min = min($count); 
-		$netral = $this->CleanTweet->find('all',array('conditions' => array('sentiment' => 'netral') ,'limit'=> $min));
-		$positif = $this->CleanTweet->find('all',array('conditions' => array('sentiment' => 'positif') ,'limit'=> $min));
-		$negatif = $this->CleanTweet->find('all',array('conditions' => array('sentiment' => 'negatif') ,'limit'=> $min));
-		$result = array_merge($netral, $positif);
-		$allDoc = array_merge($result,$negatif);*/
 		file_put_contents($this->filetraining->pwd(), "");
         $this->CleanRepository->recursive = -1;
 		$all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
 	    $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
         $index = $this->getIndex($allDoc);
 		
-		foreach($allDoc as $d){
-			$this->getTfidf($d,$allDoc,$index,'train'); 
+		foreach($allDoc as $id => $d){
+			$this->getTfidf($d,$id,$allDoc,$index,'train'); 
 		}	
 	}
 }

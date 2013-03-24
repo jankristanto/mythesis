@@ -7,12 +7,12 @@
 		);
 		
 		public function preprocessing($huntId){
+			$this->Tweet->recursive = -1;
 			$dataTweet = $this->Tweet->find('all',array(
 				'conditions' => array(
 					'Tweet.hunt_id' => $huntId
 				)
 			));
-			//$dataTweet = $this->Tweet->find('all');
 			//debug($dataTweet); exit;
 			$cleanTweets = array();
 			foreach($dataTweet as $index => $tw){
