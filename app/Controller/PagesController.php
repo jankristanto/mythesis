@@ -21,7 +21,9 @@ class PagesController extends AppController {
         'JanPosTagging',
         'JanGoogleTranslate',
         'SentimentAnalysisLexiconBased',
-		'SpellingCorrection'
+		'SpellingCorrection',
+		'Weight', 
+		'JanSvm'
     );
 	
 	public function home(){
@@ -53,17 +55,49 @@ class PagesController extends AppController {
 	}
 	
 	public function singleLinguisticAnalisys(){
-		$kalimat = 'seedihhh banget liat nilai matematika';
+
+		$informalword = ClassRegistry::init('InFormalWord');
+		$aliaswords = $kata = $informalword->find('list',array(
+					'fields' => array('InFormalWord.aspal','FormalWord.text'),
+					'recursive' => 1
+					)
+				);
+		$kalimat = 'bagus cantik ganteng indah';
+		$content = $this->Preprocessing->doIt($kalimat,$aliaswords);
+		$hasil = $this->JanPosTagging->singlePostTag($content);
 		
-		$hasil = $this->JanPosTagging->singlePostTag($this->Preprocessing->doIt($kalimat));
-		
-		/*$hasil['netral'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil); */
-		//debug($hasil); exit; 
 		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
 		
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
 		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
         debug($hasil);
+		
+		$data[0]['CleanTweet'] = array(
+			'id' => 0, 
+			'content' => $content, 
+			'sentiment' => null
+		);
+		
+		$this->Weight->buildTestingData($data);
+		
+		$this->JanSvm->test('jan.test','jan.train.model','jan.out');
+       
+		$lines=array();
+		
+		$fp=fopen(WWW_ROOT.'files/jan.out', 'r');
+		while (!feof($fp)){
+			$line=fgets($fp);
+
+			//process line however you like
+			$line=trim($line);
+
+			//add to array
+			$lines[]=$line;
+
+		}
+		fclose($fp);
+		
+		debug($lines);
 		exit;
 		
 	}
@@ -444,5 +478,9 @@ class PagesController extends AppController {
         exit;
         
     }
+	
+	public function contact(){
+		
+	}
 }
 

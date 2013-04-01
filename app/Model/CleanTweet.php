@@ -46,7 +46,7 @@
                     'conditions'=> 'Tweet.hunt_id = Hunt.id'
                 ); 
         
-        $conditions = array('Tweet.hunt_id' => $id,'CleanTweet.sentiment' => NULL);
+        $conditions = array('Tweet.hunt_id' => $id,'CleanTweet.sentiment' => null);
 
         return $this->find('all',array('joins' => $joins,'conditions'=> $conditions));
           

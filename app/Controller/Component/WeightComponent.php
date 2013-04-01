@@ -22,8 +22,8 @@ class WeightComponent extends Component{
 		$this->CleanTweet = ClassRegistry::init('CleanTweet');
         $this->CleanRepository = ClassRegistry::init('CleanRepository');
 		$this->dir = new Folder(WWW_ROOT.'files', true, 0755);
-		$this->filetraining = new File(WWW_ROOT.'files/train.dat', true, 0644);
-		$this->filetesting = new File(WWW_ROOT.'files/test.dat', true, 0644);
+		$this->filetraining = new File(WWW_ROOT.'files/jan.train', true, 0644);
+		$this->filetesting = new File(WWW_ROOT.'files/jan.test', true, 0644);
         parent::__construct($collection, $settings);
     }
 
@@ -91,6 +91,7 @@ class WeightComponent extends Component{
                     
 					/*$result = $result."{$urutan}".":"."{$score}"." ";*/
                     $hasil[$urutan] = $score/100; 
+					//$hasil[$urutan] = $score; 
 				}	
 			}
             ksort($hasil);
@@ -120,6 +121,7 @@ class WeightComponent extends Component{
 		$data = Set::classicExtract($d, '{n}.CleanTweet');
 		//$res = Set::merge($allDoc,$data);
 		$jumlahTest = count($data);
+		//debug($data); debug($allDoc); exit; 
 		$res = array_merge($data, $allDoc);
 		$index = $this->getIndex($res);
 		foreach($res as $id => $r){
@@ -133,7 +135,22 @@ class WeightComponent extends Component{
 	public function buildTrainingData(){
 		file_put_contents($this->filetraining->pwd(), "");
         $this->CleanRepository->recursive = -1;
-		$all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
+		/*$all = $this->CleanRepository->find('all', array(
+			"conditions" => "CleanRepository.sentiment = 'positif' 
+			OR CleanRepository.sentiment = 'negatif'", "limit" => 500)
+		);*/
+		$positif = $this->CleanRepository->find('all', array(
+			'conditions' => array('CleanRepository.sentiment' => 'positif'), 
+			'limit' => 3000
+			)
+		);
+		$negatif = $this->CleanRepository->find('all', array(
+			'conditions' => array('CleanRepository.sentiment' => 'negatif'), 
+			'limit' => 3000
+			)
+		);
+		$all = array_merge($positif, $negatif);
+		//debug(count($all)); exit; 
 	    $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
         $index = $this->getIndex($allDoc);
 		

@@ -65,19 +65,32 @@ class CleanTweetsController extends AppController {
 		debug($data); exit;
 	}
 	public function train(){
-		$this->JanSvm->train(WWW_ROOT.'files/train.dat');
+		$this->JanSvm->train('jan.train','jan.train.model');
 	}
 	public function test($id){
-		$result = $this->JanSvm->test(WWW_ROOT.'files/test.dat');
+		$this->JanSvm->test('jan.test','jan.train.model','jan.out');
         $this->CleanTweet->recursive = -1;
         //debug($result); exit;
-        $conditions = array("CleanTweet.sentiment" => null);
-
         $data = $this->CleanTweet->getCleanTweetNotNetral($id);
+		$lines=array();
+		
+		$fp=fopen(WWW_ROOT.'files/jan.out', 'r');
+		while (!feof($fp)){
+			$line=fgets($fp);
+
+			//process line however you like
+			$line=trim($line);
+
+			//add to array
+			$lines[]=$line;
+
+		}
+		fclose($fp);
+		
         $hasil['positif'] = 0;
         $hasil['negatif'] = 0;
         foreach($data as $i => $d){
-            if($result[$i] > 0){
+            if($lines[$i] > 0){
                 $hasil['positif'] += 1; 
                 $this->CleanTweet->id = $d['CleanTweet']['id']; 
                 $this->CleanTweet->saveField('sentiment','positif');    
@@ -100,7 +113,9 @@ class CleanTweetsController extends AppController {
 	
 	
 	public function generateBobot($id){
+		//debug($this->CleanTweet->getCleanTweet($id));
 		$data = $this->CleanTweet->getCleanTweetNotNetral($id);
+		//debug($data); exit;
 		$this->Weight->buildTestingData($data);
 		$this->Session->setFlash('Data Testing telah dibuat');
 		$this->redirect(array('action' => 'index',$id));

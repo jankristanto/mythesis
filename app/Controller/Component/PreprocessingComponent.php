@@ -12,12 +12,12 @@ App::uses('Component', 'Controller');
 		
 		public function __construct(ComponentCollection $collection, $settings = array()){
             //$settings = array_merge($this->settings, (array)$settings);
-			$this->informalword = ClassRegistry::init('InFormalWord');
+			/*$this->informalword = ClassRegistry::init('InFormalWord');
 			$this->aliaswords = $kata = $this->informalword->find('list',array(
 					'fields' => array('InFormalWord.aspal','FormalWord.text'),
 					'recursive' => 1
 					)
-				);
+				); */
             parent::__construct($collection, $settings);
 		}
 		public function casefolding($tweet){
@@ -105,12 +105,12 @@ App::uses('Component', 'Controller');
           return trim($word);
       }
       
-      public function doIt($tweet){
+      public function doIt($tweet,$aliaswords){
           $tweet = $this->clearInvalidUTF8($tweet);
 		  
           $splited = split(" ",$this->casefolding($tweet)); 
 		  //debug( $splited ); exit; 
-          $aspal = $this->aliaswords;
+          $aspal = $aliaswords;
 		  
 		  return $this->filterToken($splited,$aspal);
 		  

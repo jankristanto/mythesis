@@ -11,10 +11,15 @@ class CleanRepositoriesController extends AppController {
          
      }
      
-     public function analisys($limit,$page){
+     public function analisys($limit,$after){
         $this->CleanRepository->recursive = -1;
-        $dataBersih = $this->CleanRepository->find('all',array('limit' => $limit,'page'=> $page));
-        
+		
+        //$dataBersih = $this->CleanRepository->find('all',array('limit' => $limit,'page'=> $page));
+        $dataBersih = $this->CleanRepository->query(
+		"SELECT *
+		FROM clean_repositori AS CleanRepository
+		LIMIT ".$after." , ".$limit
+		);
         $hasil = array();
         
         foreach($dataBersih as $index => $t){
@@ -25,13 +30,15 @@ class CleanRepositoriesController extends AppController {
             $this->CleanRepository->id = $dataBersih[$index]['CleanRepository']['id']; 
             $this->CleanRepository->saveField('sentiment',$hasil['conclusion']);
         }
-        $this->set(compact('limit','page'));
+        $this->set(compact('limit','after'));
         
     }
     
     public function statistik(){
         $data = $this->CleanRepository->find('all',array('fields' => array('COUNT(id) AS jum','sentiment'),'group' => array('CleanRepository.sentiment'))); 
-        $this->set(compact('data'));
+        $this->CleanRepository->Repository->recursive = -1;
+		$count = $this->CleanRepository->Repository->find('count');
+		$this->set(compact('data','count'));
         
         
     }
