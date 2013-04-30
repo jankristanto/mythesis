@@ -141,12 +141,12 @@ class WeightComponent extends Component{
 		);*/
 		$positif = $this->CleanRepository->find('all', array(
 			'conditions' => array('CleanRepository.sentiment' => 'positif'), 
-			'limit' => 3000
+			'limit' => 12500
 			)
 		);
 		$negatif = $this->CleanRepository->find('all', array(
 			'conditions' => array('CleanRepository.sentiment' => 'negatif'), 
-			'limit' => 3000
+			'limit' => 12500
 			)
 		);
 		$all = array_merge($positif, $negatif);

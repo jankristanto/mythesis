@@ -60,6 +60,10 @@ App::uses('Component', 'Controller');
 					if(isset($aspal[$word])){
 						$word = $aspal[$word];
 					}   
+					/*if($word == 'wiranto'){
+						$word = $this->correction($word);
+						echo $word; exit;
+					}*/
 					if($word != ''){
 						$word = $this->correction($word);
 					}

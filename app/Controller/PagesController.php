@@ -62,7 +62,7 @@ class PagesController extends AppController {
 					'recursive' => 1
 					)
 				);
-		$kalimat = 'bagus cantik ganteng indah';
+		$kalimat = 'Film itu tidak bagus';
 		$content = $this->Preprocessing->doIt($kalimat,$aliaswords);
 		$hasil = $this->JanPosTagging->singlePostTag($content);
 		
@@ -70,7 +70,7 @@ class PagesController extends AppController {
 		
 		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
 		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
-        debug($hasil);
+        debug($hasil); exit;
 		
 		$data[0]['CleanTweet'] = array(
 			'id' => 0, 
@@ -220,13 +220,15 @@ class PagesController extends AppController {
     
     function coba(){
         //debug($this->FormalWord->extract('keterlaluan')); exit;
-		$this->Tweet->CleanTweet->recursive = -1;
+		//$this->Tweet->CleanTweet->recursive = -1;
 		
-		$data = $this->Tweet->CleanTweet->find('all'); 
+		//$data = $this->Tweet->CleanTweet->find('all'); 
 		//debug($data); exit;
-		$hasil = $this->getIndex($data);
-		debug($hasil['dictionary']); exit;
-		$this->generateTrain($data,$hasil['result']); 
+		//$hasil = $this->getIndex($data);
+		//debug($hasil['dictionary']); exit;
+		//$this->generateTrain($data,$hasil['result']); 
+		$data = $this->Tweet->CleanTweet->query("SELECT * FROM clean_tweets WHERE sentiment ='positif' LIMIT 4");
+		debug($data); exit;
         
     }
     
