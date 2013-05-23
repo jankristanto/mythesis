@@ -1,7 +1,7 @@
 <?php
   Class CleanTweet extends AppModel{
       public $name = 'CleanTweet'; 
-      
+      public $hasOne = array('Sentiment');
       public $belongsTo = array('Tweet');
       
       public function getCleanTweet($id){

@@ -178,6 +178,14 @@ class CleanTweetsController extends AppController {
 		$this->redirect(array('controller' => 'CleanTweets','action' => 'index',$id));
 		
 	}
+	
+	public function manualsentiment(){
+		$this->autoRender = false; 
+		$sentiment = $_POST['sentiment']; 
+		$id = $_POST['id']; 
+		$this->CleanTweet->Sentiment->insertSentiment($id,$sentiment);
+		
+	}
 /**
  * index method
  *

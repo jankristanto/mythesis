@@ -1,4 +1,6 @@
 <!-- Example row of columns --> 
+<?php echo $this->Html->script('manual_sentiment');?>
+<?php $status = array('positif' =>'positif','negatif'=>'negatif','netral'=>'netral')?>
 <div class="text-center" class="row-fluid">	
     <h2><?php echo $data['Hunt']['keyword'];?></h2>
 </div>
@@ -15,7 +17,20 @@
 	  <tbody>
 		<?php foreach($positive as $p) :?>
 		<tr class="info">
-		  <td><?php echo $p['Tweet']['content']?></td>
+		  <td>
+			<?php echo $p['Tweet']['content'];?>
+			<?php echo $this->Form->input('sentiment',
+				array(
+					'id' => false,
+					'rel' => $p['CleanTweet']['id'],
+					'class' => 'sentiment',
+					'div' => false,
+					'label' => false,
+					'options' => $status,
+					'selected' => 'positif' 
+					)
+				);?>	
+		  </td>
 		</tr>
 		<?php endforeach;?>
 	  </tbody>
@@ -32,7 +47,19 @@
 	  <tbody>
 		<?php foreach($neutral as $p) :?>
 		<tr class="warning">
-		  <td><?php echo $p['Tweet']['content']?></td>
+		  <td><?php echo $p['Tweet']['content']?>
+		  <?php echo $this->Form->input('sentiment',
+				array(
+					'id' => false,
+					'rel' => $p['CleanTweet']['id'],
+					'class' => 'sentiment',
+					'div' => false,
+					'label' => false,
+					'options' => $status,
+					'selected' => 'netral' 
+					)
+				);?>
+			</td>
 		</tr>
 		<?php endforeach;?>
 	  </tbody>
@@ -49,7 +76,19 @@
 	  <tbody>
 		<?php foreach($negative as $p) :?>
 		<tr class="error">
-		  <td><?php echo $p['Tweet']['content']?></td>
+		  <td><?php echo $p['Tweet']['content']?>
+		  <?php echo $this->Form->input('sentiment',
+				array(
+					'id' => false,
+					'rel' => $p['CleanTweet']['id'],
+					'class' => 'sentiment',
+					'div' => false,
+					'label' => false,
+					'options' => $status,
+					'selected' => 'negatif' 
+					)
+				);?>
+		  </td>
 		</tr>
 		<?php endforeach;?>
 	  </tbody>
