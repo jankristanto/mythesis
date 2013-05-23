@@ -35,7 +35,6 @@
 				if(isset($dictionary[$word])) {
 						return $word;
 				}
-				
 				$edits1 = $edits2 = array();
 				foreach($dictionary as $dictWord => $count) {
 						$dist = levenshtein($word, $dictWord);
@@ -45,19 +44,16 @@
 								$edits2[$dictWord] = $count;
 						}
 				}
-				
 				if(count($edits1)) {
 						arsort($edits1);
 						return key($edits1);
 				} else if(count($edits2)) {
 						arsort($edits2);
 						return key($edits2);
-				}
-				
+				}	
 			}else{
 				$word = '';
 			}
-			// Nothing better
 			return $word;
 		}
 	}

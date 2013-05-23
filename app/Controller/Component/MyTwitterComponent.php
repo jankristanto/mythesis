@@ -22,10 +22,9 @@ class MyTwitterComponent extends Component{
     public function getTweets($q){
         App::uses('Xml', 'Utility');
         $output = array();
-        
-        // get the seach result
-         $this->searchURL = 
-        'http://search.twitter.com/search.atom?page='.$this->settings['page'].'&lang='.$this->settings['lang'].'&rpp='.$this->settings['rpp'].'&q=';
+        $this->searchURL = 
+        'http://search.twitter.com/search.atom?page='.$this->settings['page'].
+		'&lang='.$this->settings['lang'].'&rpp='.$this->settings['rpp'].'&q=';
         $ch= curl_init($this->searchURL . urlencode($q));
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -33,7 +32,6 @@ class MyTwitterComponent extends Component{
         $response = curl_exec($ch);
         $xmlResult = Xml::toArray(Xml::build($response));
     
-        //for($i=0; $i<count($xmlResult['feed']['entry']); $i++){}
         curl_close($ch);
         return $xmlResult;
     }
@@ -43,10 +41,8 @@ class MyTwitterComponent extends Component{
         
         while (array_key_exists('feed', $results[$this->settings['page']]) && $this->checkNext($results[$this->settings['page']]['feed']['link']) && $this->settings['page'] <=$limit){
             $this->settings['page'] +=1;
-            $results[$this->settings['page']] = $this->getTweets($q); 
-				
+            $results[$this->settings['page']] = $this->getTweets($q); 		
         }
-        
         return $results;
     }
     

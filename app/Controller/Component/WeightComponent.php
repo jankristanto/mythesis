@@ -32,7 +32,6 @@ class WeightComponent extends Component{
         $docCount = array();
 		$result = array();
 		$i =1;
-			
         foreach($collection as $id => $doc) {
 			$docID = $id;
 			$terms = explode(' ', $doc['content']); // dapat array kata
@@ -41,11 +40,11 @@ class WeightComponent extends Component{
 			
 			foreach($terms as $term) {
 					if(!isset($dictionary[$term])) { // jika menemukan kata baru
-							// masukan dalam $dictionary
-							$dictionary[$term] = array( 'netral' => 0,'positif' => 0,'negatif' => 0,'df' => 0, 'postings' => array());
-							$dictionary[$term]['index'] = $i; 
-							$i++;
-							
+						// masukan dalam $dictionary
+						$dictionary[$term] = array( 'netral' => 0,'positif' => 0,
+						'negatif' => 0,'df' => 0, 'postings' => array());
+						$dictionary[$term]['index'] = $i; 
+						$i++;							
 					}
 					if(!isset($dictionary[$term]['postings'][$docID])) {
 							$dictionary[$term]['df']++;
@@ -72,7 +71,6 @@ class WeightComponent extends Component{
 	function getTfidf($doc,$id,$allDoc,$index,$mode) {
         $docCount = count($index['docCount']);
 		$terms = explode(' ', $doc['content']);
-		
 		$idDoc = $id;
 		$status = array('netral'=> '0','positif' => '1' ,'negatif' => '-1');
 		$hasil = array(); 
@@ -82,16 +80,13 @@ class WeightComponent extends Component{
             }else{
                 $result =  "{$status[$doc['sentiment']]}";    
             }
-			
 			foreach($terms as $i => $term){
 				if(isset($index['dictionary'][$term])){
 					$urutan = $index['dictionary'][$term]['index'];
 					$entry = $index['dictionary'][$term];
-					$score = round($entry['postings'][$idDoc]['tf'] * log($docCount / $entry['df'], 2), 5); 
-                    
-					/*$result = $result."{$urutan}".":"."{$score}"." ";*/
+					$score = round($entry['postings'][$idDoc]['tf'] 
+					* log($docCount / $entry['df'], 2), 5); 
                     $hasil[$urutan] = $score/100; 
-					//$hasil[$urutan] = $score; 
 				}	
 			}
             ksort($hasil);
@@ -99,7 +94,6 @@ class WeightComponent extends Component{
                 $result = $result." {$index}".":"."{$bobot}";
                 
             }
-			//$result .= "\n#".$doc['CleanTweet']['id'];
 			$result .= "\n";
 			if($mode == 'test'){
 				if($this->filetesting->exists()){
@@ -135,10 +129,6 @@ class WeightComponent extends Component{
 	public function buildTrainingData(){
 		file_put_contents($this->filetraining->pwd(), "");
         $this->CleanRepository->recursive = -1;
-		/*$all = $this->CleanRepository->find('all', array(
-			"conditions" => "CleanRepository.sentiment = 'positif' 
-			OR CleanRepository.sentiment = 'negatif'", "limit" => 500)
-		);*/
 		$positif = $this->CleanRepository->find('all', array(
 			'conditions' => array('CleanRepository.sentiment' => 'positif'), 
 			'limit' => 12500
@@ -150,10 +140,8 @@ class WeightComponent extends Component{
 			)
 		);
 		$all = array_merge($positif, $negatif);
-		//debug(count($all)); exit; 
 	    $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
         $index = $this->getIndex($allDoc);
-		
 		foreach($allDoc as $id => $d){
 			$this->getTfidf($d,$id,$allDoc,$index,'train'); 
 		}	

@@ -17,28 +17,24 @@
       }
 	  
 	  public function checkSentiment($sentence,$sentimentword){
-		
 		$status = false; 
-		//debug($sentence); exit; 
 		$i=0;
 		$x = count($sentence);
 		while(($i < $x) && (!$status)){
 			if(($sentence[$i]['jenis'] == 'VB') || ($sentence[$i]['jenis'] == 'JJ')){
-				//$kata = $this->FormalWord->find('first',array('conditions' => array('text' => $sentence[$i]['word'] )));
 				if(isset($sentimentword[$sentence[$i]['word']])){
-					if(($sentimentword[$sentence[$i]['word']] == 'negatif') || ($sentimentword[$sentence[$i]['word']] == 'positif')){
+					if(($sentimentword[$sentence[$i]['word']] == 'negatif') 
+					|| ($sentimentword[$sentence[$i]['word']] == 'positif')){
 						$status = true; 
 					}
 				}
 			}
 			$i++;
 		}
-		
 		return $status; 
 	  }
       
       public function analysisTwoWord($one,$two){
-        
         $this->FormalWord->recursive = -1;
         $sentimenOne = $this->FormalWord->find('first',array('conditions' => array('text' => $this->streamWord($one['word']))));    
         $sentimenTwo = $this->FormalWord->find('first',array('conditions' => array('text' => $this->streamWord($two['word']))));  
@@ -76,8 +72,6 @@
       
       public function analysisOneWord($one){
         $this->FormalWord->recursive = -1;
-		
-		
         $sentimenOne = $this->FormalWord->find('first',
             array('conditions' => array('text' => $this->streamWord($one['word']))));        
         return $sentimenOne['FormalWord']['status'];    
@@ -95,19 +89,14 @@
       
       public function preliminaryAnalysis($sentence){
           $sentiments = array();
-          //debug($sentence); exit; 
-          
           $i=0;
 		  $x = count($sentence);
           while($i< $x){
               if($i>0){
-				if(
-                    ($sentence[$i]['jenis'] == 'VB') 
+				if(($sentence[$i]['jenis'] == 'VB') 
                     &&($sentence[$i-1]['jenis'] == 'RB' || $sentence[$i-1]['jenis'] == 'CK'
                        ||$sentence[$i-1]['jenis'] == 'NN' || $sentence[$i-1]['jenis'] == 'JJ' 
-                    )
-                  ){
-                      
+                    )){
                       array_push(
                         $sentiments,
                         array(
@@ -115,27 +104,19 @@
                             $sentence[$i-1],
                             $sentence[$i]
                         )
-                      );
-                      
+                      );   
                   }else{
-                      if(
-                        ($sentence[$i]['jenis'] == 'JJ') && 
+                      if(($sentence[$i]['jenis'] == 'JJ') && 
                         ($sentence[$i-1]['jenis'] == 'RB' || $sentence[$i-1]['jenis'] == 'NN'
                        ||$sentence[$i-1]['jenis'] == 'VB' 
-                       )
-                      ){
+                       )){
                          array_push(
-                        $sentiments,
-                        array(
+                        $sentiments,array(
                             'analysis' => $this->analysisTwoWord($sentence[$i-1],$sentence[$i]),
                             $sentence[$i-1],
                             $sentence[$i]
-                        )
-                      );
-                      
-                      }else{
-                          if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
-                              // do analysis 1 word
+                        ));	
+                      }else{if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
                               array_push(
                                 $sentiments,
                                 array(
@@ -143,47 +124,35 @@
                                     $sentence[$i]
                                 )
                               );
-                          }
-                      }
-                  }
-              }else{
-				
-                 if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
-                              // do analysis 1 word
-							  
+                          }}}
+              }else{if($sentence[$i]['jenis'] == 'JJ' || $sentence[$i]['jenis'] == 'VB'){
                     array_push(
-							$sentiments,
-							array(
+							$sentiments,array(
 								'analysis' => $this->analysisOneWord($sentence[$i]),
 								$sentence[$i]
 							)
 						  );
-                }                    
-              } 
+                }} 
               $i=$i+1;  
           }
-          
           $senti = array();
           foreach($sentiments as $analysis){
               if(($analysis['analysis'] != null) ||  ($analysis['analysis'] != '') || (!empty($analysis['analysis']))){
-                  $senti[] = $analysis;
-              }
+                  $senti[] = $analysis;}
           }
-          
           return $senti;
       }
       
       
       public function checkNegation($data){
-	  
-		$negation = $this->FormalWord->find('list',array('conditions' => array('status' => 'kontra'), 'fields' => array('FormalWord.text','FormalWord.text'))); 
+		$negation = $this->FormalWord->find('list',array('conditions' => 
+		array('status' => 'kontra'), 'fields' => array('FormalWord.text','FormalWord.text'))); 
 		
             for ($i=0; $i< count($data['frase']); $i++){
                 if($data['frase'][$i]['analysis'] != null){
                     $data['frase'][$i]['negation'] = false;
                     for($j=0; $j<count($data['frase'][$i]) -2;$j++){
-                        for($k=1; $k<=5; $k++){
-                           
+                        for($k=1; $k<=5; $k++){                  
                             if(($data['frase'][$i][$j]['urutan']-$k) >=0 ){
                                 if(isset($negation[$data[$data['frase'][$i][$j]['urutan']-$k]['word']])){
                                     $data['frase'][$i]['negation'] = true;   
@@ -200,17 +169,13 @@
       public function conclusion($frase){
           $positif = 0; 
           $negatif = 0; 
-          
           foreach($frase as $f){
-              
             if($f['analysis'] == 'positif'){// sentiment +
-                
                 if($f['negation']){ // negation true
                     $negatif++;
                 }else{ // negation false;
                     $positif++;
                 }
-                
             }else{
                 if($f['analysis'] == 'negatif'){//sentiment -
                     if($f['negation']){//negation true
@@ -221,7 +186,6 @@
                 }
             }
           }
-          
           $kesimpulan = '';
           if($positif > $negatif){
               $kesimpulan = 'positif';
@@ -232,7 +196,6 @@
                   $kesimpulan = 'netral';
               }
           }
-            
           return $kesimpulan;
       }
   }

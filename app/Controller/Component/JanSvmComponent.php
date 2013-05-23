@@ -14,14 +14,11 @@
 		}
 		
 		public function train($filetraining,$filemodel){
-			//$this->phpsvm->train($filetraining, 'files/model.svm');
 			chdir('files'); 
 			echo exec('svm-train '.$filetraining.' '.$filemodel);
-			//echo getcwd() . "\n";exit;
 		}
 		
 		public function test($filetesting,$filemodel,$fileout){
-			//return $this->phpsvm->test($filetesting, 'files/model.svm', 'files/output.dat');
 			chdir('files'); 
 			echo exec('svm-predict '.$filetesting.' '.$filemodel.' '.$fileout);
 		}

@@ -49,14 +49,12 @@
 	  }
       
       public function posTagDic($tweet,$id){
-          $results = array();
-          $parser = new TextParse($tweet); 
+          $results = array(); $parser = new TextParse($tweet); 
           $toArray = $parser->getWord(1); 
           $this->FormalWord->recursive = -1;
           foreach($toArray as $index => $word){
               if($this->FormalWord->find('count',array(
-                'conditions' => array('text' => $word)
-              ))){
+                'conditions' => array('text' => $word)))){
                   $baku = $this->FormalWord->find('first',array(
                 'conditions' => array('text' => $word)));
                   array_push(
@@ -64,8 +62,7 @@
                         'clean_tweet_id' => $id,
                         'urutan' => $index,
                         'word' => $word, 
-                        'jenis' => $baku['FormalWord']['pos']
-                    )
+                        'jenis' => $baku['FormalWord']['pos'])
                   );
               }else{
                  array_push(
@@ -73,16 +70,11 @@
                         'clean_tweet_id' => $id,
                         'urutan' => $index,
                         'word' => $word, 
-                        'jenis' => 'NN'
-                    )
+                        'jenis' => 'NN')
                   ); 
-                  
               }
-              
           }
          return $results;  
       }
-      
-      
   }
 ?>

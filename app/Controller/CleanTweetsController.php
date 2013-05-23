@@ -77,11 +77,7 @@ class CleanTweetsController extends AppController {
 		$fp=fopen(WWW_ROOT.'files/jan.out', 'r');
 		while (!feof($fp)){
 			$line=fgets($fp);
-
-			//process line however you like
 			$line=trim($line);
-
-			//add to array
 			$lines[]=$line;
 
 		}

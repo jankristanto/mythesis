@@ -89,23 +89,8 @@ App::uses('Component', 'Controller');
 	  }
       
       public function removeSymbol($word){
-          /*$word = str_replace("!"," ",$word);
-          $word = str_replace("*"," ",$word);
-          $word = str_replace("^"," ",$word);
-          $word = str_replace(","," ",$word);
-		  $word = str_replace("."," ",$word);
-		  $word = str_replace("#"," ",$word);
-		  $word = str_replace(":"," ",$word);
-		  $word = str_replace("="," ",$word);
-		  $word = str_replace("-"," ",$word);
-		  $word = str_replace("?"," ",$word);
-		  $word = str_replace("rt"," ",$word);
-		  $word = str_replace("("," ",$word);
-		  $word = str_replace(")"," ",$word);
-		  $word = str_replace("|"," ",$word); */
 		  $word = preg_replace('/[^\p{L}\p{N}\s]/u',' ', $word);
 		  if($word == 'rt'){$word='';}
-
           return trim($word);
       }
       
@@ -126,41 +111,39 @@ App::uses('Component', 'Controller');
          for($i=0;$i<10;$i++ ){
             $str = (string)$i;
             if (strpos($word, $str) !== false) { 
-  
-
-            switch ($i) {
-                case 0:
-                    $word =  str_replace($str,"o",$word);
-                    break;
-                case 1:
-                    $word =  str_replace($str,"i",$word);
-                    break;
-                case 2:
-                    $pos = strpos($word,$str);
-                    $word = substr($word, 0, $pos).' '.substr($word, 0, $pos );  
-                    break;
-                case 3:
-                    $word =  str_replace($str,"e",$word);
-                    break;
-                case 4:
-                    $word =  str_replace($str,"a",$word);
-                    break;
-                case 5:
-                    $word =  str_replace($str,"s",$word);
-                    break;
-                case 6:
-                    $word =  str_replace($str,"g",$word);
-                    break;
-                case 7:
-                    $word =  str_replace($str,"t",$word);
-                    break;
-                case 8:
-                    $word =  str_replace($str,"b",$word);
-                    break;
-                case 9:
-                    $word =  str_replace($str,"g",$word);
-                    break;
-            }
+				switch ($i) {
+					case 0:
+						$word =  str_replace($str,"o",$word);
+						break;
+					case 1:
+						$word =  str_replace($str,"i",$word);
+						break;
+					case 2:
+						$pos = strpos($word,$str);
+						$word = substr($word, 0, $pos).' '.substr($word, 0, $pos );  
+						break;
+					case 3:
+						$word =  str_replace($str,"e",$word);
+						break;
+					case 4:
+						$word =  str_replace($str,"a",$word);
+						break;
+					case 5:
+						$word =  str_replace($str,"s",$word);
+						break;
+					case 6:
+						$word =  str_replace($str,"g",$word);
+						break;
+					case 7:
+						$word =  str_replace($str,"t",$word);
+						break;
+					case 8:
+						$word =  str_replace($str,"b",$word);
+						break;
+					case 9:
+						$word =  str_replace($str,"g",$word);
+						break;
+				}
             
             }
          }
