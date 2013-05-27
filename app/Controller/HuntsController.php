@@ -13,6 +13,8 @@
 		);
         
         public function result($id){
+			$list = $this->Hunt->Tweet->CleanTweet->Sentiment->find('list',array('fields' => array('clean_tweet_id','sentiment'))); 
+			$this->set('manual',$list); 
 			$this->Hunt->recursive = -1; 
             $data = $this->Hunt->read(null,$id);
 			$positive = $this->Hunt->Tweet->getBySentiment($id,'positif');

@@ -18,6 +18,8 @@
 		<?php foreach($positive as $p) :?>
 		<tr class="info">
 		  <td>
+			<?php $selected = 'positif';?>
+			<?php if(isset($manual[$p['CleanTweet']['id']]))$selected=   $manual[$p['CleanTweet']['id']]; ?>
 			<?php echo $p['Tweet']['content'];?>
 			<?php echo $this->Form->input('sentiment',
 				array(
@@ -27,7 +29,7 @@
 					'div' => false,
 					'label' => false,
 					'options' => $status,
-					'selected' => 'positif' 
+					'selected' => $selected
 					)
 				);?>	
 		  </td>

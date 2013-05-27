@@ -110,12 +110,15 @@ class WeightComponent extends Component{
 	public function buildTestingData($d){
 		file_put_contents($this->filetesting->pwd(), "");
 		$this->CleanRepository->recursive = -1;
-        $all = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif' OR CleanRepository.sentiment = 'negatif'", "limit" => 500));
-        $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
+        $docpos = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'positif'", "limit" => 12500));
+		$docneg = $this->CleanRepository->find('all', array("conditions" => "CleanRepository.sentiment = 'negatif'", "limit" => 12500));
+        $pos = Set::classicExtract($docpos, '{n}.CleanRepository');
+		$neg = Set::classicExtract($docneg, '{n}.CleanRepository');
 		$data = Set::classicExtract($d, '{n}.CleanTweet');
 		//$res = Set::merge($allDoc,$data);
 		$jumlahTest = count($data);
 		//debug($data); debug($allDoc); exit; 
+		$allDoc = array_merge($pos,$neg);
 		$res = array_merge($data, $allDoc);
 		$index = $this->getIndex($res);
 		foreach($res as $id => $r){

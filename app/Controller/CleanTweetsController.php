@@ -179,8 +179,63 @@ class CleanTweetsController extends AppController {
 		$this->autoRender = false; 
 		$sentiment = $_POST['sentiment']; 
 		$id = $_POST['id']; 
-		$this->CleanTweet->Sentiment->insertSentiment($id,$sentiment);
+		$check = $this->CleanTweet->Sentiment->find('count',array('conditions' => array('clean_tweet_id' => $id)));
+		if($check > 0){
+			$this->CleanTweet->Sentiment->updateSentiment($id,$sentiment);
+		}else{
+			$this->CleanTweet->Sentiment->insertSentiment($id,$sentiment);
+		}
+	}
+	
+	public function statistik(){
+		$positifpositif1 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment IS NULL AND CleanTweet.sentiment = 'positif'"
+		));
+		$positifpositif2 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'positif' AND CleanTweet.sentiment = 'positif'"
+		));
+		$positifpositif = $positifpositif1 + $positifpositif2;
 		
+		$positifnetral = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'netral' AND CleanTweet.sentiment = 'positif'"
+		));		
+		$positifnegatif = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'negatif' AND CleanTweet.sentiment = 'positif'"
+		));
+		/* end positif */
+		$netralnetral1 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment IS NULL AND CleanTweet.sentiment = 'netral'"
+		));
+		$netralnetral2 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'netral' AND CleanTweet.sentiment = 'netral'"
+		));		
+		$netralnetral = $netralnetral1 + $netralnetral2;
+		
+		$netralpositif = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'positif' AND CleanTweet.sentiment = 'netral'"
+		));
+		$netralnegatif = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'negatif' AND CleanTweet.sentiment = 'netral'"
+		));
+		/* end netral */
+		$negatifnegatif1 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment IS NULL AND CleanTweet.sentiment = 'negatif'"
+		));
+		$negatifnegatif2 = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'negatif' AND CleanTweet.sentiment = 'negatif'"
+		));		
+		$negatifnegatif =  $negatifnegatif1 + $negatifnegatif2;
+		$negatifpositif = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'positif' AND CleanTweet.sentiment = 'negatif'"
+		));
+		$negatifnetral = $this->CleanTweet->find('count', array(
+			'conditions' => "Sentiment.sentiment = 'netral' AND CleanTweet.sentiment = 'negatif'"
+		));
+		$this->set(compact(
+			'positifpositif','positifnetral','positifnegatif',
+			'netralpositif','netralnetral','netralnegatif',
+			'negatifpositif','negatifnetral','negatifnegatif'
+		));
 	}
 /**
  * index method

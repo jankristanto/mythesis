@@ -15,12 +15,17 @@
                       <li><a href="<?php echo $this->Html->url(array('controller' => 'InFormalWords','action' => 'index'));?>">Kata Tidak Baku</a></li>
                       <li><a href="<?php echo $this->Html->url(array('controller' => 'repositories','action' => 'index'));?>">Data Training</a></li>
                       <li><a href="<?php echo $this->Html->url(array('controller' => 'CleanRepositories','action' => 'statistik'));?>">Statistik</a></li>
-                      
-                      
                     </ul>
                   </li>
 				<li><a href="<?php echo $this->Html->url(array('controller' => 'hunts','action' => 'index'));?>">Services</a></li>
-				<li><a href="<?php echo $this->Html->url(array('controller' => 'pages','action' => 'summary','my'));?>">Comparison</a></li>
+				<li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Comparison <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="<?php echo $this->Html->url(array('controller' => 'Pages','action' => 'summary','my'));?>">Training</a></li>
+                      <li><a href="<?php echo $this->Html->url(array('controller' => 'CleanTweets','action' => 'statistik'));?>">Testing</a></li>
+                    </ul>
+                </li>
+				
 				<li><a href="#">About</a></li>
 				<li><a href="#">Contact</a></li>
                 
