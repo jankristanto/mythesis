@@ -26,6 +26,46 @@ class WeightComponent extends Component{
 		$this->filetesting = new File(WWW_ROOT.'files/jan.test', true, 0644);
         parent::__construct($collection, $settings);
     }
+	
+	public function getTfidfTesting($id,$doctesting,$testingindex, $trainingindex,$indexfiturbaru){
+		$docCount = count($trainingindex['docCount']);
+		$terms = explode(' ', $doctesting['content']);
+		$hasil = array(); 
+		//pr($doctesting);
+		//pr($testingindex);
+		if($doctesting['sentiment'] != 'netral' ){
+            $result = "0";
+			foreach($terms as $i => $term){
+				if(isset($trainingindex['dictionary'][$term])){
+					$urutan = $trainingindex['dictionary'][$term]['index'];
+					$entry = $testingindex['dictionary'][$term];
+					$score = round($entry['postings'][$id]['tf'] 
+					* log($docCount / $trainingindex['dictionary'][$term]['df'], 2), 5); 
+                    $hasil[$urutan] = $score/100; 
+				}else{
+					if($term != ''){
+						$indexfiturbaru++;
+						$urutan = $indexfiturbaru;
+						$entry = $testingindex['dictionary'][$term];
+						$score = round($entry['postings'][$id]['tf'] 
+						* log($docCount / 1, 2), 5); 
+						$hasil[$urutan] = $score/100; 
+					}
+				}	
+			}
+            ksort($hasil);
+            foreach($hasil as $index => $bobot){
+                $result = $result." {$index}".":"."{$bobot}";
+            }
+			$result .= "\n";
+			
+			if($this->filetesting->exists()){
+				$this->filetesting->append($result);
+			}			
+			
+			return $indexfiturbaru;
+		}
+	}
 
 	public function getIndex($collection) {
         $dictionary = array();
@@ -115,17 +155,16 @@ class WeightComponent extends Component{
         $pos = Set::classicExtract($docpos, '{n}.CleanRepository');
 		$neg = Set::classicExtract($docneg, '{n}.CleanRepository');
 		$data = Set::classicExtract($d, '{n}.CleanTweet');
-		//$res = Set::merge($allDoc,$data);
-		$jumlahTest = count($data);
-		//debug($data); debug($allDoc); exit; 
+		
 		$allDoc = array_merge($pos,$neg);
-		$res = array_merge($data, $allDoc);
-		$index = $this->getIndex($res);
-		foreach($res as $id => $r){
-			if($id == $jumlahTest){
-				break;
-			}
-			$this->getTfidf($r,$id,$res,$index,'test'); 
+		
+		$indextraining = $this->getIndex($allDoc);
+		$indextesting = $this->getIndex($data);
+		
+		//pr($indextesting); 
+		$indexfiturbaru = count($indextraining['dictionary']) + 1;
+		foreach($data as $id => $r){
+			$indexfiturbaru = $this->getTfidfTesting($id,$r,$indextesting,$indextraining,$indexfiturbaru); 
 		}
 	}
 	
@@ -147,6 +186,36 @@ class WeightComponent extends Component{
         $index = $this->getIndex($allDoc);
 		foreach($allDoc as $id => $d){
 			$this->getTfidf($d,$id,$allDoc,$index,'train'); 
+		}	
+	}
+	
+	public function reBuildTrainingData(){
+		//file_put_contents($this->filetraining->pwd(), "");
+		$this->CleanRepository->recursive = -1;
+		$positif = $this->CleanRepository->find('all', array(
+			'conditions' => array('CleanRepository.sentiment' => 'positif'), 
+			'limit' => 12500
+			)
+		);
+		$negatif = $this->CleanRepository->find('all', array(
+			'conditions' => array('CleanRepository.sentiment' => 'negatif'), 
+			'limit' => 12500
+			)
+		);
+		$all = array_merge($positif, $negatif);
+	    $allDoc = Set::classicExtract($all, '{n}.CleanRepository');
+		
+		$new = $this->CleanTweet->getAll();
+		$newDoc = Set::classicExtract($new, '{n}.CleanTweet');
+		$allnew = array_merge($newDoc,$allDoc);
+		//pr($newDoc); exit;
+		$jumlahBaru = count($newDoc);
+        $index = $this->getIndex($allnew);
+		foreach($allnew as $id => $d){
+			if($id == $jumlahBaru){
+				break;
+			}
+			$this->getTfidf($d,$id,$allnew,$index,'train'); 
 		}	
 	}
 }

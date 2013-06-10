@@ -68,8 +68,10 @@ class CleanTweetsController extends AppController {
 		$this->JanSvm->train('jan.train','jan.train.model');
 	}
 	public function test($id){
+		//debug($id); exit;
 		$this->JanSvm->test('jan.test','jan.train.model','jan.out');
-        $this->CleanTweet->recursive = -1;
+        
+		$this->CleanTweet->recursive = -1;
         //debug($result); exit;
         $data = $this->CleanTweet->getCleanTweetNotNetral($id);
 		$lines=array();
@@ -107,6 +109,11 @@ class CleanTweetsController extends AppController {
 		exit;
 	}
 	
+	public function reTraining(){
+		$this->Weight->buildTestingData();
+		//$this->JanSvm->train('jan.train','jan.train.model');
+		exit;
+	}
 	
 	public function generateBobot($id){
 		//debug($this->CleanTweet->getCleanTweet($id));
@@ -290,6 +297,7 @@ class CleanTweetsController extends AppController {
 		if (!$this->CleanTweet->exists()) {
 			throw new NotFoundException(__('Invalid clean tweet'));
 		}
+		
 		$this->set('cleanTweet', $this->CleanTweet->read(null, $id));
 	}
 

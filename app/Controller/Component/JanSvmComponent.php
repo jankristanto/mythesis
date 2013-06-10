@@ -15,12 +15,12 @@
 		
 		public function train($filetraining,$filemodel){
 			chdir('files'); 
-			echo exec('svm-train '.$filetraining.' '.$filemodel);
+			exec('svm-train '.$filetraining.' '.$filemodel);
 		}
 		
 		public function test($filetesting,$filemodel,$fileout){
 			chdir('files'); 
-			echo exec('svm-predict '.$filetesting.' '.$filemodel.' '.$fileout);
+			exec('svm-predict '.$filetesting.' '.$filemodel.' '.$fileout);
 		}
 		public function test2($filetesting,$filemodel,$fileout){
 			chdir('files'); 
