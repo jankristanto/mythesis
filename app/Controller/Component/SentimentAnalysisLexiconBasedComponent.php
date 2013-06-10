@@ -187,6 +187,7 @@
             }
           }
           $kesimpulan = '';
+		  
           if($positif > $negatif){
               $kesimpulan = 'positif';
           }else{

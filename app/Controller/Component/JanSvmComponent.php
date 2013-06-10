@@ -22,6 +22,10 @@
 			chdir('files'); 
 			echo exec('svm-predict '.$filetesting.' '.$filemodel.' '.$fileout);
 		}
+		public function test2($filetesting,$filemodel,$fileout){
+			chdir('files'); 
+			exec('svm-predict '.$filetesting.' '.$filemodel.' '.$fileout);
+		}
 		
 	}
 ?>

@@ -25,8 +25,13 @@
                       <li><a href="<?php echo $this->Html->url(array('controller' => 'CleanTweets','action' => 'statistik'));?>">Testing</a></li>
                     </ul>
                 </li>
-				
-				<li><a href="#">About</a></li>
+				<li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Single Try <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="<?php echo $this->Html->url(array('controller' => 'Pages','action' => 'testLexiconBased'));?>">Lexicon Based</a></li>
+                      <li><a href="<?php echo $this->Html->url(array('controller' => 'Pages','action' => 'testSvm'));?>">SVM</a></li>
+                    </ul>
+                </li>
 				<li><a href="#">Contact</a></li>
                 
 			</ul>

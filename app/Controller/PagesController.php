@@ -1,18 +1,9 @@
 <?php
-
-
 App::uses('AppController', 'Controller');
-
-
 class PagesController extends AppController {
-
 	public $name = 'Pages';
-
-
 	public $helpers = array('Html', 'Session');
-
 	public $uses = array('Tweet','FormalWord','Query','Comparison');
-    
     public $components = array(
         'MyTwitter' => array(
             'lang' => 'in'
@@ -25,6 +16,100 @@ class PagesController extends AppController {
 		'Weight', 
 		'JanSvm'
     );
+	
+	public function testLexiconBased(){
+		//debug($this->data); exit;
+		if($this->request->is('post')){
+		$informalword = ClassRegistry::init('InFormalWord');
+		$aliaswords = $kata = $informalword->find('list',array(
+					'fields' => array('InFormalWord.aspal','FormalWord.text'),
+					'recursive' => 1
+					)
+				);
+		$kalimat = $this->data['Pages']['sentence'];
+		$content = $this->Preprocessing->doIt($kalimat,$aliaswords);
+		$hasil = $this->JanPosTagging->singlePostTag($content);
+		$result['words'] = $hasil;
+		$hasil['frase'] = $this->SentimentAnalysisLexiconBased->preliminaryAnalysis($hasil);
+		
+		$hasil = $this->SentimentAnalysisLexiconBased->checkNegation($hasil);
+		$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->conclusion($hasil['frase']);
+		
+		$result['frase'] = $hasil['frase'];
+		$result['conclusion'] = $hasil['conclusion'];
+        $this->set(compact('result'));
+		}
+	}
+	public function testSvm(){
+		if($this->request->is('post')){
+			$hasil = array();
+			$formalWord = ClassRegistry::init('FormalWord');
+			$sentimentword = $formalWord->listSentimentWord();
+			$sentence = $this->data['Pages']['sentence']; 
+			//debug($sentence); exit;
+			
+			$hasil = $this->JanPosTagging->singlePostTag($sentence);
+			$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil,$sentimentword);
+			//debug($hasil); exit;
+			$informalword = ClassRegistry::init('InFormalWord');
+			$aliaswords = $kata = $informalword->find('list',array(
+						'fields' => array('InFormalWord.aspal','FormalWord.text'),
+						'recursive' => 1
+						)
+					);
+			
+			$content = $this->Preprocessing->doIt($sentence,$aliaswords);
+			
+			$data[0]['CleanTweet'] = array( 
+					'id' => -1, 
+					'content' => $content, 
+					'sentiment' => '', 
+					'tweet_id' => -1
+				
+			);
+			
+			$this->Weight->buildTestingData($data);
+			$this->JanSvm->test2('jan.test','jan.train.model','jan.out');
+
+			$lines=array();		
+			$fp=fopen(WWW_ROOT.'files/jan.out', 'r');
+			while (!feof($fp)){
+				$line=fgets($fp);
+				$line=trim($line);
+				$lines[]=$line;
+
+			}
+			fclose($fp);
+			
+			$hasil['positif'] = 0;
+			$hasil['negatif'] = 0;
+			foreach($data as $i => $d){
+				if($lines[$i] > 0){
+					$hasil['positif'] += 1; 
+				}else{
+					$hasil['negatif'] += 1;
+				}    
+				
+			}
+			$kesimpulan = 'netral';
+			if($hasil['positif'] > 0){
+				$kesimpulan = 'positif';
+			}else{
+				$kesimpulan = 'negatif'; 
+			}
+			
+			$lines=array();		
+			$fp=fopen(WWW_ROOT.'files/jan.test', 'r');
+			while (!feof($fp)){
+				$line=fgets($fp);
+				$line=trim($line);
+				$lines[]=$line;
+
+			}
+			
+			$this->set(compact('kesimpulan','lines'));
+		}
+	}
 	
 	public function home(){
 	
