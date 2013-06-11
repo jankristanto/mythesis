@@ -40,7 +40,7 @@ class WeightComponent extends Component{
 					$urutan = $trainingindex['dictionary'][$term]['index'];
 					$entry = $testingindex['dictionary'][$term];
 					$score = round($entry['postings'][$id]['tf'] 
-					* log($docCount / $trainingindex['dictionary'][$term]['df'], 2), 5); 
+					* log(($docCount+1) / ($trainingindex['dictionary'][$term]['df']+1), 2), 5); 
                     $hasil[$urutan] = $score; 
 				}else{
 					if($term != ''){
@@ -48,7 +48,7 @@ class WeightComponent extends Component{
 						$urutan = $indexfiturbaru;
 						$entry = $testingindex['dictionary'][$term];
 						$score = round($entry['postings'][$id]['tf'] 
-						* log($docCount / 1, 2), 5); 
+						* log(($docCount+1)/ 2, 2), 5); 
 						$hasil[$urutan] = $score; 
 					}
 				}	
@@ -125,7 +125,7 @@ class WeightComponent extends Component{
 					$urutan = $index['dictionary'][$term]['index'];
 					$entry = $index['dictionary'][$term];
 					$score = round($entry['postings'][$idDoc]['tf'] 
-					* log($docCount / $entry['df'], 2), 5); 
+					* log(($docCount+1) / ($entry['df']+1), 2), 5); 
                     $hasil[$urutan] = $score; 
 				}	
 			}
@@ -178,7 +178,7 @@ class WeightComponent extends Component{
 		);
 		$negatif = $this->CleanRepository->find('all', array(
 			'conditions' => array('CleanRepository.sentiment' => 'negatif'), 
-			'limit' => 12500
+			'limit' => 10500
 			)
 		);
 		$all = array_merge($positif, $negatif);
