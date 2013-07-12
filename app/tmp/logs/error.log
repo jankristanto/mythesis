@@ -2789,3 +2789,283 @@
 #1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
 #2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-05-23 10:06:29 Error: [MissingTableException] Table repositori for model Repository was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'repositori',
+  'class' => 'Repository',
+  'ds' => 'default',
+)
+Request URL: /mythesis/CleanRepositories/statistik
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(3243): Model->setSource('repositori')
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(1067): Model->getDataSource()
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(2696): DboSource->read(Object(CleanRepository), Array)
+#3 C:\xampp\htdocs\mythesis\app\Controller\CleanRepositoriesController.php(38): Model->find('all', Array)
+#4 [internal function]: CleanRepositoriesController->statistik()
+#5 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(CleanRepositoriesController), Array)
+#6 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-05-25 03:13:22 Error: Fatal Error (4): syntax error, unexpected 'clean_tweet_id' (T_STRING), expecting ')' in [C:\xampp\htdocs\mythesis\app\Controller\HuntsController.php, line 16]
+2013-05-25 03:13:22 Error: [FatalErrorException] syntax error, unexpected 'clean_tweet_id' (T_STRING), expecting ')'
+Request URL: /mythesis/hunts/result/25
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 16)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 16, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 16, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-25 03:17:05 Error: Fatal Error (4): syntax error, unexpected 'if' (T_IF) in [C:\xampp\htdocs\mythesis\app\View\Hunts\result.ctp, line 30]
+2013-05-25 03:17:05 Error: [FatalErrorException] syntax error, unexpected 'if' (T_IF)
+Request URL: /mythesis/hunts/result/25
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 30)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 30, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 30, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-25 03:20:12 Error: Fatal Error (4): syntax error, unexpected '<' in [C:\xampp\htdocs\mythesis\app\View\Hunts\result.ctp, line 23]
+2013-05-25 03:20:13 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /mythesis/hunts/result/25
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 23, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 23, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-30 06:18:09 Error: [MissingTableException] Table tweets for model Tweet was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'tweets',
+  'class' => 'Tweet',
+  'ds' => 'default',
+)
+Request URL: /mythesis/CleanTweets/statistik
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(3243): Model->setSource('tweets')
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(1067): Model->getDataSource()
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(2696): DboSource->read(Object(CleanTweet), Array)
+#3 C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php(193): Model->find('count', Array)
+#4 [internal function]: CleanTweetsController->statistik()
+#5 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(CleanTweetsController), Array)
+#6 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-06-08 17:16:29 Error: Fatal Error (4): syntax error, unexpected ')' in [C:\xampp\htdocs\mythesis\app\Controller\PagesController.php, line 69]
+2013-06-08 17:16:30 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /mythesis/Pages/testSvm
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 69)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 69, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 69, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-08 17:34:30 Error: [MissingActionException] Action FormalWordsController::edit() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormalWordsController',
+  'action' => 'edit',
+)
+Request URL: /mythesis/FormalWords/edit/22870
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(FormalWordsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-06-10 03:26:31 Error: [MissingActionException] Action CleanTweetsController::reBuildTrainingData() could not be found.
+Exception Attributes: array (
+  'controller' => 'CleanTweetsController',
+  'action' => 'reBuildTrainingData',
+)
+Request URL: /mythesis/cleantweets/reBuildTrainingData
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-06-10 03:44:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Sentiment'
+Request URL: /mythesis/cleantweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `CleanTw...', Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(670): DboSource->execute('SELECT `CleanTw...', Array, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(1081): DboSource->fetchAll('SELECT `CleanTw...', false)
+#4 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(2696): DboSource->read(Object(CleanTweet), Array)
+#5 C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php(68): Model->find('all', Array)
+#6 C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php(111): CleanTweet->getAll()
+#7 [internal function]: CleanTweetsController->reTraining()
+#8 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(CleanTweetsController), Array)
+#9 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-06-10 04:00:32 Error: [MissingViewException] View file "C:\xampp\htdocs\mythesis\app\View\CleanTweets\re_training.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\mythesis\\app\\View\\CleanTweets\\re_training.ctp',
+)
+Request URL: /mythesis/cleantweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-06-10 04:04:07 Error: Fatal Error (1): Call to a member function test() on a non-object in [C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php, line 111]
+2013-06-10 04:04:08 Error: [FatalErrorException] Call to a member function test() on a non-object
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 111)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 111, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 111, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 06:05:35 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php, line 111]
+2013-06-10 06:05:35 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 111)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 111, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 111, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 06:07:19 Error: Fatal Error (4): syntax error, unexpected ';' in [C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php, line 111]
+2013-06-10 06:07:19 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 111)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 111, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 111, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 06:51:30 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unBind' at line 1
+Request URL: /mythesis/cleantweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('unBind', Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(669): DboSource->execute('unBind', Array, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(612): DboSource->fetchAll('unBind', Array, Array)
+#4 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(800): DboSource->query('unBind', Array, Object(CleanTweet))
+#5 C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php(60): Model->__call('unBind', Array)
+#6 C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php(60): CleanTweet->unBind(Array)
+#7 C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php(111): CleanTweet->getAll()
+#8 [internal function]: CleanTweetsController->reTraining()
+#9 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(CleanTweetsController), Array)
+#10 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-06-10 06:51:32 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unBind' at line 1
+Request URL: /mythesis/cleantweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('unBind', Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(669): DboSource->execute('unBind', Array, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(612): DboSource->fetchAll('unBind', Array, Array)
+#4 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(800): DboSource->query('unBind', Array, Object(CleanTweet))
+#5 C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php(60): Model->__call('unBind', Array)
+#6 C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php(60): CleanTweet->unBind(Array)
+#7 C:\xampp\htdocs\mythesis\app\Controller\CleanTweetsController.php(111): CleanTweet->getAll()
+#8 [internal function]: CleanTweetsController->reTraining()
+#9 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(CleanTweetsController), Array)
+#10 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-06-10 07:49:45 Error: Fatal Error (4): syntax error, unexpected ''CleanTweet'' (T_CONSTANT_ENCAPSED_STRING) in [C:\xampp\htdocs\mythesis\app\Model\CleanTweet.php, line 65]
+2013-06-10 07:49:45 Error: [FatalErrorException] syntax error, unexpected ''CleanTweet'' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 65)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 65, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 65, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 08:04:53 Error: Fatal Error (1): Maximum execution time of 600 seconds exceeded in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\File.php, line 416]
+2013-06-10 08:04:53 Error: [FatalErrorException] Maximum execution time of 600 seconds exceeded
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 416)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 416, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\xampp\htdocs...', 416, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 08:09:31 Error: Fatal Error (1): Maximum execution time of 600 seconds exceeded in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\File.php, line 416]
+2013-06-10 08:09:31 Error: [FatalErrorException] Maximum execution time of 600 seconds exceeded
+Request URL: /mythesis/CleanTweets/reTraining
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 416)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 416, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\xampp\htdocs...', 416, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 17:04:35 Error: Fatal Error (1): ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\Debugger.php, line 594]
+2013-06-10 17:04:35 Error: [FatalErrorException] ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object
+Request URL: /mythesis/CleanTweets/test/4
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594)
+#1 [internal function]: ErrorHandler::handleError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 17:04:57 Error: Fatal Error (1): ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\Debugger.php, line 594]
+2013-06-10 17:04:57 Error: [FatalErrorException] ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object
+Request URL: /mythesis/CleanTweets/test/4
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594)
+#1 [internal function]: ErrorHandler::handleError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 17:11:43 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 51095148 bytes) in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\Debugger.php, line 615]
+2013-06-10 17:11:43 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 51095148 bytes)
+Request URL: /mythesis/CleanTweets/test/4
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\xampp\htdocs...', 615)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\xampp\htdocs...', 615, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\xampp\htdocs...', 615, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-10 17:12:41 Error: Fatal Error (1): ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object in [C:\xampp\htdocs\mythesis\lib\Cake\Utility\Debugger.php, line 594]
+2013-06-10 17:12:41 Error: [FatalErrorException] ReflectionClass::getProperties() [<a href='http://php.net/reflectionclass.getproperties'>reflectionclass.getproperties</a>]: Internal error: Failed to retrieve the reflection object
+Request URL: /mythesis/CleanTweets/test/4
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594)
+#1 [internal function]: ErrorHandler::handleError(1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'ReflectionClass...', 'C:\xampp\htdocs...', 594, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-14 07:17:54 Error: [MissingActionException] Action CleanTweetsController::result() could not be found.
+Exception Attributes: array (
+  'controller' => 'CleanTweetsController',
+  'action' => 'result',
+)
+Request URL: /mythesis/CleanTweets/result/1
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-06-15 05:22:47 Error: [MissingControllerException] Controller class CController could not be found.
+Exception Attributes: array (
+  'class' => 'CController',
+  'plugin' => NULL,
+)
+Request URL: /mythesis/C
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
