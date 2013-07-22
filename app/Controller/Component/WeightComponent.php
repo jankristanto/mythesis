@@ -42,15 +42,6 @@ class WeightComponent extends Component{
 					$score = round($entry['postings'][$id]['tf'] 
 					* log(($docCount+1) / ($trainingindex['dictionary'][$term]['df']+1), 2), 5); 
                     $hasil[$urutan] = $score; 
-				}else{
-					if($term != ''){
-						$indexfiturbaru++;
-						$urutan = $indexfiturbaru;
-						$entry = $testingindex['dictionary'][$term];
-						$score = round($entry['postings'][$id]['tf'] 
-						* log(($docCount+1)/ 2, 2), 5); 
-						$hasil[$urutan] = $score; 
-					}
 				}	
 			}
             ksort($hasil);
