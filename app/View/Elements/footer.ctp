@@ -1,3 +1,3 @@
 <div class="footer">
-	<p>&copy; Company 2013</p>
+	<p>&copy; Jan Kristanto - PASCASARJANA ILMU KOMPUTER UGM - 2013</p>
 </div>

@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-repo").addClass("active");
+	});
+</script>
 <div class="row-fluid">
     <?php $warna = '';?>
     <table class="table table-striped">

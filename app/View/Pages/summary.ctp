@@ -1,6 +1,11 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-per").addClass("active");
+	});
+</script>
 <div class="row-fluid">
 	<table class="table">
-		<caption>Emoticon \ Manual</caption>
+		
 		<thead>
 		<td></td>
 		<td></td>

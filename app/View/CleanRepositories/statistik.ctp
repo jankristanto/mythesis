@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-repo").addClass("active");
+	});
+</script>
 <h2>Statistik Data Training</h2>
 <?php 
     $hasil= array(); 

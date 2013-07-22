@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-peng").addClass("active");
+	});
+</script>
 <div class="row-fluid">
     <h2>Test SVM</h2>
 	<?php
