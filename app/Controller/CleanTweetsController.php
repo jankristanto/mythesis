@@ -120,7 +120,7 @@ class CleanTweetsController extends AppController {
 		$data = $this->CleanTweet->getCleanTweetNotNetral($id);
 		//debug($data); exit;
 		$this->Weight->buildTestingData($data);
-		$this->Session->setFlash('Data Testing telah dibuat');
+		$this->Session->setFlash('Data Testing telah dibuat','default',array('class' => 'alert alert-info'));
 		$this->redirect(array('action' => 'index',$id));
 	}
     

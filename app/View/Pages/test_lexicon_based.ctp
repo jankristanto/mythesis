@@ -81,6 +81,8 @@
             </tbody>
         </table>
 		</div>
-		Kesimpulan : <?php echo $result['conclusion'];?>
+		<div class="alert alert-success">
+		<b>Kesimpulan : <?php echo $result['conclusion'];?></b>
+		</div>
 	<?php endif;?>
 </div>

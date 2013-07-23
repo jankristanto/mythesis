@@ -1,10 +1,12 @@
 <?php
 
 class MyTwitterComponent extends Component{
+	public $components = array('Twitteroauth.Twitter');
     public $settings = array(
         'lang' => 'in',
         'page' => 1,
-        'rpp' => 100
+        'rpp' => 100,
+		
         
     );
     
@@ -37,12 +39,19 @@ class MyTwitterComponent extends Component{
     }
     
     public function getAllTweets($q,$limit=1){
-        $results[$this->settings['page']] = $this->getTweets($q);
+        /*$results[$this->settings['page']] = $this->getTweets($q);
         
         while (array_key_exists('feed', $results[$this->settings['page']]) && $this->checkNext($results[$this->settings['page']]['feed']['link']) && $this->settings['page'] <=$limit){
             $this->settings['page'] +=1;
             $results[$this->settings['page']] = $this->getTweets($q); 		
-        }
+        }*/ 
+		$results = Set::reverse($this->Twitter->OAuth->get(
+				'search/tweets', array(
+					'q' => $q,
+					'lang'=> $this->settings['lang'],
+					'count' => $this->settings['rpp']
+				)
+			));
         return $results;
     }
     

@@ -4,7 +4,7 @@
 	});
 </script>
 <div class="row-fluid">
-	<div class="span4">
+	<div class="span4 alert alert-success">
 		<h2>Sistem</h2>
 		<p>
 		Sentiment Analysis pada Twitter berbahasa Indonesia dikembangkan dengan metode gabungan 
@@ -15,7 +15,7 @@
 		</p>
 		
 	</div>
-	<div class="span4">
+	<div class="span4 alert alert-info">
 		<h2>Pengembang</h2>
 		<p>
 		Jan Kristanto </p>
@@ -24,7 +24,7 @@
 		</p>
 		
 	</div>
-	<div class="span4">
+	<div class="span4 alert alert-warning">
 		<h2>Requirement</h2>
 		<p>Apache</p>
 		<p>PHP5</p>
