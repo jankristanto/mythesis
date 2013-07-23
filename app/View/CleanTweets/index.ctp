@@ -2,9 +2,31 @@
 <div class="text-center" class="row-fluid">
 	<h2 class="left">DATA TWITTER</h2>
 	<div class="right">
-		<?php echo $this->Html->link('Lakukan Analisis Awal',array('controller' => 'CleanTweets','action' => 'checkNetral',$huntId )); ?>
-		<?php echo $this->Html->link('Generate test',array('controller' => 'CleanTweets','action' => 'generateBobot',$huntId )); ?>
-		<?php echo $this->Html->link('Analysis',array('controller' => 'CleanTweets','action' => 'test',$huntId )); ?>
+		<p> <h2> Step 1 :</h2>
+		<a href="<?php echo $this->Html->url(
+			array('controller' => 'CleanTweets',
+			'action' => 'checkNetral',$huntId));?>" 
+			class="btn">
+			Check Frase</a>
+		</p>
+		
+		<p>
+		<h2> Step 2 :</h2>
+		<a href="<?php echo $this->Html->url(
+			array('controller' => 'CleanTweets',
+			'action' => 'generateBobot',$huntId));?>" 
+			class="btn">
+			Generate file testing</a>
+		</p>
+		<p>
+		<h2> Step 3 :</h2>
+		<a href="<?php echo $this->Html->url(
+			array('controller' => 'CleanTweets',
+			'action' => 'test',$huntId ));?>" 
+			class="btn">
+			Pelabelan SVM</a>
+		</p>
+		
 	</div>
 	<div class="table">
 		<table class="table">
