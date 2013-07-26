@@ -1,5 +1,10 @@
 <!-- Example row of columns --> 
 <?php echo $this->Html->script('searchtweet'); ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-lay").addClass("active");
+	});
+</script>
 <div class="text-center" class="row-fluid">
 	<div id="formhunt">
     <h2>Enter Keyword...</h2>

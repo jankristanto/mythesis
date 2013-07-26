@@ -19,8 +19,8 @@ $(document).ready(function(){
         }).done(function( msg ) {
           //alert( "Data Saved: " + msg.data.status );
           $( "#formhunt" ).html(
-            '<h2>Ditemukan '+msg.data.jumlah+' Tweets</h2> <br/>'+
-            '<a class="button" href="'+Project.basePath+'Tweets/preprocessing/'+msg.data.hunt+'">Lakukan Preprocessing</a>'
+            '<h2>Pencarian Selesai</h2><br/>'+
+            '<a class="btn" href="'+Project.basePath+'Tweets/preprocessing/'+msg.data.hunt+'">Lakukan Preprocessing >></a>'
             ).show();
         }); 
 		

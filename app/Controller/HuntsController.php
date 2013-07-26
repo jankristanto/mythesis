@@ -9,8 +9,16 @@
 			'Preprocessing', 
 			'JanPosTagging',
 			'SentimentAnalysisLexiconBased',
-			'Weight'
+			'Weight',
+			'Twitteroauth.Twitter'
 		);
+		
+		public function t(){
+			$result = Set::reverse($this->Twitter->OAuth->get(
+				'search/tweets', array('q' => 'wiranto','lang'=> 'in','count' => 100)
+			));
+			debug($result); exit; 
+		}
         
         public function result($id){
 			$list = $this->Hunt->Tweet->CleanTweet->Sentiment->find('list',array('fields' => array('clean_tweet_id','sentiment'))); 
@@ -32,8 +40,8 @@
 					// do crawl twitter
 					$d = $this->MyTwitter->getAllTweets($term,1);
                     //debug($d);
-					$kembalian['jumlah'] = count($d[1]['feed']['entry']);
-					if($this->Hunt->Tweet->saveTweet($d,$this->Hunt->id )){
+					$kembalian['jumlah'] = count($d['statuses']);
+					if($this->Hunt->Tweet->saveTweet($d['statuses'],$this->Hunt->id )){
 				        $kembalian['status'] = 1;
                         $kembalian['hunt'] = $this->Hunt->id;
 					}else{

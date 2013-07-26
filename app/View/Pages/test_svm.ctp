@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-peng").addClass("active");
+	});
+</script>
 <div class="row-fluid">
     <h2>Test SVM</h2>
 	<?php
@@ -15,11 +20,12 @@
 </div>
 <div class="row-fluid">
     <?php if(isset($kesimpulan)):?>
-		<?php 
-		print_r($lines[0]);
-		echo "<br/>";
-		echo $kesimpulan;
-		?>
+		<div class="alert alert-info">
+		<?php print_r($lines[0]);?>
+		</div>
+		<div class="alert alert-success">
+			<b>Prediksi : <?php echo $kesimpulan;?></b>
+		</div>
 	<?php endif;?>
 
 </div>

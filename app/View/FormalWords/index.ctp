@@ -1,4 +1,9 @@
 <?php echo $this->Html->script('myscript');?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-repo").addClass("active");
+	});
+</script>
 <div class="box">
     <!-- Box Head -->
     <div class="box-head">

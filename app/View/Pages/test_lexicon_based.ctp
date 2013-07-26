@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-peng").addClass("active");
+	});
+</script>
 <div class="row-fluid">
     <h2>Test Lexicon Based</h2>
 	<?php
@@ -76,6 +81,8 @@
             </tbody>
         </table>
 		</div>
-		Kesimpulan : <?php echo $result['conclusion'];?>
+		<div class="alert alert-success">
+		<b>Kesimpulan : <?php echo $result['conclusion'];?></b>
+		</div>
 	<?php endif;?>
 </div>

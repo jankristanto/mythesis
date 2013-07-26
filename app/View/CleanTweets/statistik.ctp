@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#j-per").addClass("active");
+	});
+</script>
 <div class="row-fluid">
 	<table class="table">
 		<caption>SVM \ Manual</caption>
