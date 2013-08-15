@@ -3069,3 +3069,13 @@ Request URL: /mythesis/C
 Stack Trace:
 #0 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-08-02 05:50:44 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\xampp\htdocs\mythesis\app\Controller\PagesController.php, line 355]
+2013-08-02 05:50:44 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /mythesis/pages/perbandingan/20/1
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 355)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 355, Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 355, Array)
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Core\App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
