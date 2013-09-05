@@ -2789,3 +2789,646 @@
 #1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
 #2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-03-13 21:37:38 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:39:21 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:40:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:41:27 Error: [MissingActionException] Action PagesController::home() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 21:46:01 Error: [MissingControllerException] Controller class RepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:52:04 Error: [MissingControllerException] Controller class RepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:52:14 Error: [MissingControllerException] Controller class RepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:52:27 Error: [MissingControllerException] Controller class RepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 21:53:20 Error: [MissingControllerException] Controller class RepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 22:30:03 Error: [MissingActionException] Action TweetsController::index() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(TweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 22:30:13 Error: [MissingActionException] Action TweetsController::index() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(TweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 22:40:40 Error: [MissingControllerException] Controller class CleanRepositoriesController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-13 22:52:00 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(21): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:52:01 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(21): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:53:11 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(21): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:53:33 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(21): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:55:26 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'sentiment' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(22): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:55:47 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'repositori_id' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(22): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('10', '1')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-13 22:57:46 Error: [MissingViewException] View file "E:\site\mythesis\app\View\Repositories\preprocessing_data_training.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-13 22:58:30 Error: [MissingViewException] View file "E:\site\mythesis\app\View\Repositories\preprocessing_data_training.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-13 22:58:59 Error: [MissingViewException] View file "E:\site\mythesis\app\View\Repositories\preprocessing_data_training.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-13 23:15:02 Error: [MissingActionException] Action TweetsController::index() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(TweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 23:18:42 Error: [MissingActionException] Action RepositoriesController::analisys.() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 23:21:06 Error: [MissingActionException] Action RepositoriesController::analisys() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-13 23:21:53 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanRepositories\analisys.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-13 23:31:05 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanRepositories\analisys.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 09:25:30 Error: [MissingActionException] Action CleanTweetsController::buildTrainingData()() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-14 10:06:12 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 12:20:57 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 12:22:25 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 12:28:09 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 12:29:45 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 12:30:22 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-14 21:38:25 Error: [PDOException] SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'content' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(28): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('100', '42')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-14 21:38:59 Error: [PDOException] SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'content' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(28): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('100', '41')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-14 21:42:23 Error: [PDOException] SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'content' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(28): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('100', '41')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-14 21:45:11 Error: [PDOException] SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'content' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(CleanRepository), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Controller\RepositoriesController.php(28): Model->saveAll(Array)
+#7 [internal function]: RepositoriesController->preprocessingDataTraining('100', '41')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-15 07:53:45 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DESC' in 'order clause'
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Reposit...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Reposit...', Array, Array)
+#3 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Reposit...', false)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Repository), Array)
+#5 E:\site\mythesis\app\Controller\RepositoriesController.php(15): Model->find('all', Array)
+#6 [internal function]: RepositoriesController->index()
+#7 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#8 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-03-16 08:46:47 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'keyword' doesn't have a default value
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Hunt), Array, Array)
+#4 E:\site\mythesis\app\Controller\HuntsController.php(20): Model->save(Array)
+#5 [internal function]: HuntsController->index()
+#6 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(HuntsController), Array)
+#7 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#9 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-03-16 10:17:39 Error: [MissingActionException] Action InFormalWordsController::aad() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InFormalWordsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-16 10:22:56 Error: [MissingActionException] Action FormalWordsController::add() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FormalWordsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-23 12:44:15 Error: [MissingActionException] Action CleanRepositoriesController::buildTrainingData() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-23 23:56:36 Error: [PDOException] SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: 't' for column 'published' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Tweet), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Model\Tweet.php(35): Model->saveAll(Array)
+#7 E:\site\mythesis\app\Controller\HuntsController.php(34): Tweet->saveTweet(Array, '5')
+#8 [internal function]: HuntsController->index()
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(HuntsController), Array)
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-03-27 15:25:37 Error: [MissingActionException] Action CleanRepositoriesController::statistic() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-28 08:42:27 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('alias')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\app\Controller\Component\PreprocessingComponent.php(20): Model->find('list', Array)
+#7 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(105): PreprocessingComponent->__construct(Object(ComponentCollection), Array)
+#8 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Preprocessing', Array)
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(PagesController))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-03-28 08:42:46 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('clean_repositor...')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\app\Controller\CleanRepositoriesController.php(33): Model->find('all', Array)
+#7 [internal function]: CleanRepositoriesController->statistik()
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CleanRepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-28 08:43:33 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('kelas_kata')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#7 E:\site\mythesis\lib\Cake\Controller\Controller.php(1084): PaginatorComponent->paginate('FormalWord', Array, Array)
+#8 E:\site\mythesis\app\Controller\FormalWordsController.php(38): Controller->paginate('FormalWord')
+#9 [internal function]: FormalWordsController->index()
+#10 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(FormalWordsController), Array)
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#12 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FormalWordsController), Object(CakeRequest), Object(CakeResponse))
+#13 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-03-28 08:43:45 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('alias')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\app\Controller\Component\PreprocessingComponent.php(20): Model->find('list', Array)
+#7 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(105): PreprocessingComponent->__construct(Object(ComponentCollection), Array)
+#8 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Preprocessing', Array)
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(PagesController))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-03-28 08:44:20 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('alias')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\app\Controller\Component\PreprocessingComponent.php(20): Model->find('list', Array)
+#7 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(105): PreprocessingComponent->__construct(Object(ComponentCollection), Array)
+#8 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Preprocessing', Array)
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(PagesController))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-03-28 08:46:27 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+" is missing, or could not be created.
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(245): Mysql->connect()
+#1 E:\site\mythesis\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 E:\site\mythesis\lib\Cake\Model\Model.php(3417): ConnectionManager::getDataSource('default')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1083): Model->setDataSource('default')
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(3443): Model->setSource('alias')
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#6 E:\site\mythesis\app\Controller\Component\PreprocessingComponent.php(20): Model->find('list', Array)
+#7 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(105): PreprocessingComponent->__construct(Object(ComponentCollection), Array)
+#8 E:\site\mythesis\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Preprocessing', Array)
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(HuntsController))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-03-31 19:48:31 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-31 21:50:46 Error: [MissingActionException] Action CleanTweetsController::result() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-31 21:50:54 Error: [MissingControllerException] Controller class RepositoryController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-31 21:50:58 Error: [MissingActionException] Action RepositoriesController::result() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-31 22:56:36 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-31 22:58:28 Error: [MissingControllerException] Controller class CleanController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-03-31 22:58:49 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-31 22:59:41 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-31 23:02:48 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-31 23:50:17 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'queery' at line 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('queery', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('queery', Array, Array)
+#3 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('queery', Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(775): DboSource->query('queery', Array, Object(CleanRepository))
+#5 E:\site\mythesis\app\Controller\CleanRepositoriesController.php(22): Model->__call('queery', Array)
+#6 E:\site\mythesis\app\Controller\CleanRepositoriesController.php(22): CleanRepository->queery('SELECT *????FRO...')
+#7 [internal function]: CleanRepositoriesController->analisys('100', '23500')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CleanRepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-03-31 23:50:58 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'queery' at line 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('queery', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('queery', Array, Array)
+#3 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('queery', Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(775): DboSource->query('queery', Array, Object(CleanRepository))
+#5 E:\site\mythesis\app\Controller\CleanRepositoriesController.php(22): Model->__call('queery', Array)
+#6 E:\site\mythesis\app\Controller\CleanRepositoriesController.php(22): CleanRepository->queery('SELECT *????FRO...')
+#7 [internal function]: CleanRepositoriesController->analisys('100', '23500')
+#8 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CleanRepositoriesController), Array)
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-04-06 02:36:43 Error: [MissingActionException] Action CleanRepositoriesController::buildTrainingData() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-06 02:42:02 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-06 02:51:31 Error: [MissingActionException] Action PagesController::coba2() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-06 03:11:53 Error: [MissingActionException] Action CleanRepositoriesController::buildTrainingData() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanRepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-06 03:18:03 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-05-22 22:42:22 Error: [MissingActionException] Action CleanTweetsController::result() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-05-22 22:42:27 Error: [MissingActionException] Action CleanTweetsController::results() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-05-22 22:54:30 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-22 22:54:44 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-29 00:00:54 Error: [PDOException] SQLSTATE[70100]: <<Unknown error>>: 1317 Query execution was interrupted
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Reposit...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Reposit...', Array, Array)
+#3 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Reposit...', false)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Repository), Array)
+#5 E:\site\mythesis\app\Controller\RepositoriesController.php(19): Model->find('all', Array)
+#6 [internal function]: RepositoriesController->index()
+#7 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RepositoriesController), Array)
+#8 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RepositoriesController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-06-11 02:26:32 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-06-12 01:31:10 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-06-12 01:54:10 Error: [MissingViewException] View file "E:\site\mythesis\app\View\CleanTweets\train.ctp" is missing.
+#0 E:\site\mythesis\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 E:\site\mythesis\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CleanTweetsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-07-22 22:11:38 Error: [MissingActionException] Action PagesController::about() could not be found.
+#0 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-07-23 19:34:12 Error: [PDOException] SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: ' ue Jul 23 12:33:53 +0000 2013' for column 'published' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Tweet), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Model\Tweet.php(33): Model->saveAll(Array)
+#7 E:\site\mythesis\app\Controller\HuntsController.php(44): Tweet->saveTweet(Array, '5')
+#8 [internal function]: HuntsController->index()
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(HuntsController), Array)
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-07-23 19:34:53 Error: [PDOException] SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: ' ue Jul 23 12:33:56 +0000 2013' for column 'published' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Tweet), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Model\Tweet.php(33): Model->saveAll(Array)
+#7 E:\site\mythesis\app\Controller\HuntsController.php(44): Tweet->saveTweet(Array, '6')
+#8 [internal function]: HuntsController->index()
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(HuntsController), Array)
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-07-23 19:41:16 Error: [PDOException] SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x90\xAC, ...' for column 'content' at row 1
+#0 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `th...', Array)
+#2 E:\site\mythesis\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `th...')
+#3 E:\site\mythesis\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Tweet), Array, Array)
+#4 E:\site\mythesis\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 E:\site\mythesis\lib\Cake\Model\Model.php(2018): Model->saveMany(Array, Array)
+#6 E:\site\mythesis\app\Model\Tweet.php(33): Model->saveAll(Array)
+#7 E:\site\mythesis\app\Controller\HuntsController.php(44): Tweet->saveTweet(Array, '8')
+#8 [internal function]: HuntsController->index()
+#9 E:\site\mythesis\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(HuntsController), Array)
+#10 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 E:\site\mythesis\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\site\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
