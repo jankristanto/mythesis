@@ -30,7 +30,94 @@
 			$neutral = $this->Hunt->Tweet->getBySentiment($id,'netral');
             $this->set(compact('data','positive','negative','neutral')); 
         }
-		
+		public function service(){
+			$hunt['Hunt']['keyword'] = $term;
+			if($this->Hunt->save($hunt)){
+				// mencari data pada twitter
+				$d = $this->MyTwitter->getAllTweets($term,1);
+				// menyimpan data tweet
+				if($this->Hunt->Tweet->saveTweet($d['statuses'],$this->Hunt->id )){
+					$this->Hunt->Tweet->recursive = -1;
+					$dataTweet = $this->Hunt->Tweet->find('all',array(
+						'conditions' => array(
+							'Tweet.hunt_id' => $huntId
+						)
+					));
+					$informalword = ClassRegistry::init('InFormalWord');
+					$aliaswords = $kata = $informalword->find('list',array(
+							'fields' => array('InFormalWord.aspal','FormalWord.text'),
+							'recursive' => 1
+							)
+						);
+					//debug($dataTweet); exit;
+					$cleanTweets = array();
+					foreach($dataTweet as $index => $tw){
+						$clean = $this->Preprocessing->doIt($tw['Tweet']['content'],$aliaswords);
+						if(!is_null($clean)){
+							$cleanTweets[$index]['CleanTweet']['content'] = $clean;
+							$cleanTweets[$index]['CleanTweet']['tweet_id'] = $tw['Tweet']['id'];
+						}
+						
+					}
+						   
+					if($this->Hunt->Tweet->CleanTweet->saveAll($cleanTweets)){
+						$this->Hunt->Tweet->CleanTweet->recursive = -1;
+						$dataBersih = $this->Hunt->Tweet->CleanTweet->getCleanTweet($huntId);
+						$hasil = array();
+						$formalWord = ClassRegistry::init('FormalWord');
+						$sentimentword = $formalWord->listSentimentWord();
+							
+						foreach($dataBersih as $index => $t){
+							$hasil = $this->JanPosTagging->posTagDic($dataBersih[$index]['CleanTweet']['content'],$dataBersih[$index]['CleanTweet']['id']);
+							$hasil['conclusion'] = $this->SentimentAnalysisLexiconBased->checkSentiment($hasil,$sentimentword);
+							
+							if(!$hasil['conclusion']){  
+								$this->Hunt->Tweet->CleanTweet->id = $dataBersih[$index]['CleanTweet']['id'];
+								$this->Hunt->Tweet->CleanTweet->saveField('sentiment','netral'); 
+							}
+							
+						}
+						$data = $this->CleanTweet->getCleanTweetNotNetral($id);
+
+						$this->Weight->buildTestingData($data);
+						$this->JanSvm->test('jan.test','jan.train.model','jan.out');
+        
+						$this->CleanTweet->recursive = -1;
+						//debug($result); exit;
+						$data = $this->CleanTweet->getCleanTweetNotNetral($id);
+						$lines=array();
+						
+						$fp=fopen(WWW_ROOT.'files/jan.out', 'r');
+						while (!feof($fp)){
+							$line=fgets($fp);
+							$line=trim($line);
+							$lines[]=$line;
+
+						}
+						fclose($fp);
+						
+						$hasil['positif'] = 0;
+						$hasil['negatif'] = 0;
+						foreach($data as $i => $d){
+							if($lines[$i] > 0){
+								$hasil['positif'] += 1; 
+								$this->CleanTweet->id = $d['CleanTweet']['id']; 
+								$this->CleanTweet->saveField('sentiment','positif');    
+							}else{
+								$hasil['negatif'] += 1;
+								$this->CleanTweet->id = $d['CleanTweet']['id']; 
+								$this->CleanTweet->saveField('sentiment','negatif');    
+							}    
+							
+						}
+						$this->redirect(array('controller' => 'hunts','action' => 'result',$id));
+					}
+				}else{
+					echo "Gagal Menyimpan data tweet"; exit;
+				}
+				
+			}
+		}
 		public function index(){
 			if($this->request->is('ajax')){
 				$this->autoRender = false;
