@@ -820,3 +820,48 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 >>>>>>> eacc2bea60d4bd155c513bc36987a7a333a2ede9
 [main] - APP\webroot\index.php, line 92
 
+2013-09-05 13:23:25 Debug: Notice (8): Undefined variable: term in [E:\site\mythesis\app\Controller\HuntsController.php, line 34]
+Trace:
+HuntsController::service() - APP\Controller\HuntsController.php, line 34
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 485
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-09-05 13:23:25 Debug: Notice (8): Undefined variable: term in [E:\site\mythesis\app\Controller\HuntsController.php, line 35]
+Trace:
+HuntsController::service() - APP\Controller\HuntsController.php, line 35
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 485
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-09-05 13:24:19 Debug: Notice (8): Undefined variable: term in [E:\site\mythesis\app\Controller\HuntsController.php, line 35]
+Trace:
+HuntsController::service() - APP\Controller\HuntsController.php, line 35
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 485
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-09-05 13:24:19 Debug: Notice (8): Undefined variable: term in [E:\site\mythesis\app\Controller\HuntsController.php, line 38]
+Trace:
+HuntsController::service() - APP\Controller\HuntsController.php, line 38
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 485
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-09-05 13:24:29 Debug: Notice (8): Undefined variable: term in [E:\site\mythesis\app\Controller\HuntsController.php, line 35]
+Trace:
+HuntsController::service() - APP\Controller\HuntsController.php, line 35
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 485
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+

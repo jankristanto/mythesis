@@ -6,6 +6,25 @@
 	});
 </script>
 <div class="text-center" class="row-fluid">
+	
+	<h2>Enter Keyword...</h2>
+	<?php
+		echo $this->Form->create('Hunt', array(
+			'url' => array('action' => 'service'),
+			'id' => 'newservice',
+			'inputDefaults' => array(            
+				'label' => false,            
+				'div' => false,
+				)	
+			)
+		); 
+	?>
+	<?php echo $this->Form->input('keyword',array('class' => 'input-big','placeholder' => 'enter keyword...')); ?>	
+	
+	<button type="submit" class="btn btn-primary">Search</button>
+	<?php echo $this->Form->end(); ?>
+
+
 	<div id="formhunt">
     <h2>Enter Keyword...</h2>
 	<?php
