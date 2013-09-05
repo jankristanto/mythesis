@@ -352,12 +352,17 @@ class PagesController extends AppController {
 	function perbandingan($limit,$page){
 			
 		$dataTweet = $this->Comparison->find('all',array('limit' => $limit,'page' => $page));
-			
+		$informalword = ClassRegistry::init('InFormalWord');
+		$aliaswords = $kata = $informalword->find('list',array(
+					'fields' => array('InFormalWord.aspal','FormalWord.text'),
+					'recursive' => 1
+					)
+				);
         $cleanTweets = array();
         foreach($dataTweet as $index => $tw){
             $cleanTweets[$index]['CleanTweet']['id'] = $tw['Comparison']['id'];
 			$cleanTweets[$index]['CleanTweet']['original'] = $tw['Comparison']['original'];
-			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['original']);
+			$cleanTweets[$index]['CleanTweet']['content'] = $this->Preprocessing->doIt($tw['Comparison']['original'],$aliaswords);
 			//$cleanTweets[$index]['CleanTweet']['other'] = 'negatif';
         }
                
