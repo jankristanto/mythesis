@@ -26,20 +26,20 @@
 
 
 	<div id="formhunt">
-    <h2>Enter Keyword...</h2>
+    <!--<h2>Enter Keyword...</h2> -->
 	<?php
-		echo $this->Form->create('Hunt', array(
+		/*echo $this->Form->create('Hunt', array(
 			'inputDefaults' => array(            
 				'label' => false,            
 				'div' => false,
 				)	
 			)
-		); 
+		); */
 	?>
-	<?php echo $this->Form->input('keyword',array('class' => 'input-big','placeholder' => 'enter keyword...')); ?>	
+	<?php //echo $this->Form->input('keyword',array('class' => 'input-big','placeholder' => 'enter keyword...')); ?>	
 	
-	<button type="submit" class="btn btn-primary">Search</button>
-	<?php echo $this->Form->end(); ?>
+	<!-- <button type="submit" class="btn btn-primary">Search</button> -->
+	<?php //echo $this->Form->end(); ?>
     </div>
     <div id="pgbar" class="progress progress-info progress-striped">
         <div class="bar" style="width: 100%"></div>

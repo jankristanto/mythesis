@@ -58,7 +58,7 @@
 			$netralpositif + $netralnetral + $netralnegatif +
 			$negatifpositif + $negatifnetral + $negatifnegatif);
 	?> <br/>
-	akurasi : <?php echo ($positifpositif + $netralnetral + $negatifnegatif); ?>
+	akurasi : <?php echo round(($positifpositif + $netralnetral + $negatifnegatif)/499,2); ?>
 	</div>
 </div>
 

@@ -21,6 +21,7 @@
 		debug($data); exit;
 	  }
 	  public function generateText(){
+		$this->FormalWord->recursive = -1;
 		$data = $this->FormalWord->find('all',array('fields' => array('text')));
 		App::uses('Folder', 'Utility');
 		App::uses('File', 'Utility');

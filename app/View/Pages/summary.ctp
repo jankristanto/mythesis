@@ -54,7 +54,7 @@
 	<div>
 	<?php echo $this->Html->link('Lihat Detail',array('controller' => 'pages','action' => 'perbandingan',20,1))?>
 	Total Data : 300 <br/>
-	akurasi : <?php echo ($data['positifpositif'] + $data['netralnetral'] + $data['negatifnegatif'])/300 ?>
+	akurasi : <?php echo round(($data['positifpositif'] + $data['netralnetral'] + $data['negatifnegatif'])/300,2); ?>
 	</div>
 
 	<div>

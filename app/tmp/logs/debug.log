@@ -865,3 +865,69 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 103
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 [main] - APP\webroot\index.php, line 92
 
+2013-09-13 16:49:35 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 103
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+
+2013-09-13 16:49:35 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 43]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 43
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 103
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+
+2013-09-13 16:50:18 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 103
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+
+2013-09-13 16:50:18 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 43]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 43
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 103
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+
+2013-09-14 08:08:36 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 42
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 115
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+
+2013-09-14 08:08:36 Debug: Notice (8): Undefined index: FormalWord in [C:\xampp\htdocs\mythesis\app\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 45]
+Trace:
+SentimentAnalysisLexiconBasedComponent::analysisTwoWord() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 45
+SentimentAnalysisLexiconBasedComponent::preliminaryAnalysis() - APP\Controller\Component\SentimentAnalysisLexiconBasedComponent.php, line 115
+PagesController::testLexiconBased() - APP\Controller\PagesController.php, line 33
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 92
+

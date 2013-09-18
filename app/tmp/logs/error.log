@@ -3725,3 +3725,28 @@ Stack Trace:
 #4 [internal function]: App::shutdown()
 #5 {main}
 >>>>>>> eacc2bea60d4bd155c513bc36987a7a333a2ede9
+2013-09-07 15:23:44 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'root\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /mythesis/hunts
+Stack Trace:
+#0 C:\xampp\htdocs\mythesis\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 C:\xampp\htdocs\mythesis\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(1108): Model->setDataSource('default')
+#4 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(3243): Model->setSource('hunts')
+#5 C:\xampp\htdocs\mythesis\lib\Cake\Model\Model.php(1319): Model->getDataSource()
+#6 C:\xampp\htdocs\mythesis\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 C:\xampp\htdocs\mythesis\lib\Cake\View\Helper\FormHelper.php(456): FormHelper->_introspectModel('Hunt', 'fields')
+#8 C:\xampp\htdocs\mythesis\app\View\Hunts\index.ctp(20): FormHelper->create('Hunt', Array)
+#9 C:\xampp\htdocs\mythesis\lib\Cake\View\View.php(947): include('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\mythesis\lib\Cake\View\View.php(909): View->_evaluate('C:\xampp\htdocs...', Array)
+#11 C:\xampp\htdocs\mythesis\lib\Cake\View\View.php(471): View->_render('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\mythesis\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 C:\xampp\htdocs\mythesis\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HuntsController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\mythesis\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
